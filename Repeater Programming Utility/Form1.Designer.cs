@@ -233,7 +233,6 @@
             this.txtCallsign.Name = "txtCallsign";
             this.txtCallsign.Size = new System.Drawing.Size(100, 20);
             this.txtCallsign.TabIndex = 17;
-            this.txtCallsign.Text = "N5JLC";
             // 
             // menuStrip1
             // 
@@ -354,7 +353,7 @@
             this.txtLogonCode.Name = "txtLogonCode";
             this.txtLogonCode.Size = new System.Drawing.Size(85, 20);
             this.txtLogonCode.TabIndex = 24;
-            this.txtLogonCode.Text = "187 001 5674";
+            this.txtLogonCode.Text = "187 001 1234";
             // 
             // btnLogon
             // 
