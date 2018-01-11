@@ -28,4 +28,8 @@
 </code></pre>
 <p>You could dial it by hand, but if you get a single digit wrong you have to start over again.</p>
 <p>This utility can key-up the radio, identify with your call sign, send each line, unkey between each line, and identify again at the end.</p>
+<h2 id="initial-installation--updates">Initial installation &amp; updates</h2>
+<p>The only system prerequisite is .NET Framework v4.5, which is already installed on Windows computers that are regularly updated.  <s>If there is an Internet connection when the program is opened it will look for an update and, if one is available, prompt the user to install it.</s> (Coming soon)</p>
+<h2 id="contributing">Contributing</h2>
+<p>You can contribute to this project by using the program and providing feedback, submitting issues, or by assisting in the programming and submitting pull requests.  In either case, please read the contributing page for instructions.</p>
 
