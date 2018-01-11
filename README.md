@@ -31,5 +31,5 @@
 <h2 id="initial-installation--updates">Initial installation &amp; updates</h2>
 <p>The only system prerequisite is .NET Framework v4.5, which is already installed on Windows computers that are regularly updated.  <s>If there is an Internet connection when the program is opened it will look for an update and, if one is available, prompt the user to install it.</s> (Coming soon)</p>
 <h2 id="contributing">Contributing</h2>
-<p>You can contribute to this project by using the program and providing feedback, submitting issues, or by assisting in the programming and submitting pull requests.  In either case, please read the contributing page for instructions.</p>
+<p>You can contribute to this project by using the program and providing feedback, submitting issues, or by assisting in the programming and submitting pull requests.  In either case, please read the <a href="CONTRIBUTING.md">contributing page</a> for instructions.</p>
 
