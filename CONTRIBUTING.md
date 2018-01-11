@@ -21,9 +21,9 @@
 <p>Pull requests are very welcome! Please try to follow these simple rules if applicable:</p>
 <ul>
 <li>Submit pull requests to the Development branch.</li>
-<li>Please create a topic-specific branch for every separate change you make.</li>
-<li>Make sure your patches are well tested.</li>
-<li>Update the <a href="https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/blob/development/README.md">README</a> and/or <a href="https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/wiki">WIKI</a> if applicable.</li>
+<li>Please create a new pull request for every separate and unrelated change you make.</li>
+<li>Make sure your changes are well tested.</li>
+<li>Update the <a href="https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/blob/development/README.md">readme</a> and/or <a href="https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/wiki">wiki</a> if applicable.</li>
 <li>Please <strong>do not change</strong> the version number.</li>
 </ul>
 
