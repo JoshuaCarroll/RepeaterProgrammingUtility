@@ -9,6 +9,7 @@
 <a href="http://forthebadge.com"><img src="http://forthebadge.com/images/badges/powered-by-electricity.svg" alt="forthebadge"></a></p>
 <p>A Windows desktop application that can be used to program any radio repeater controller that accepts <a href="https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling">DTMF</a> tones for programming.</p>
 <p>Given a serial interface (such as a <a href="http://www.tigertronics.com/signalnk.htm">TigerLink USB</a>), it will automatically activate the <a href="https://en.wikipedia.org/wiki/Push-to-talk">PTT</a> on your radio.  If you don’t have one, then you can use the <a href="https://en.wikipedia.org/wiki/Voice-operated_switch">VOX feature</a> of your radio to send the commands.  The program will also automatically identify for you using text-to-speech.</p>
+<p><img src="https://raw.githubusercontent.com/JoshuaCarroll/RepeaterProgrammingUtility/screenshots/screenshot.png" alt="Screenshot of the N5JLC Repeater Programming Utility with several lines of repeater programming code."></p>
 <h2 id="what">What?</h2>
 <p><a href="http://www.arrl.org/what-is-amateur-radio">Amateur Radio</a> operators (aka <em>ham operators</em> or <em>hams</em>) use repeaters to basically re-broadcast a signal. Repeaters typically have a quality antenna, high power, and an elevated location.  This way, a ham radio operator using a small hand-held radio with 1 watt of power (typically a broadcast radius of roughly 2 miles) can be heard across an entire state.</p>
 <h2 id="why">Why?</h2>
