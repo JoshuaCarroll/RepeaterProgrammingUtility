@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtLengthOfEachTone = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cbComPort = new System.Windows.Forms.ComboBox();
@@ -50,7 +49,14 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportAProblemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.provideASuggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtCommentCharacter = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -64,18 +70,12 @@
             this.groupBoxSettings = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBoxSecurity = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtPauseBetweenLines = new System.Windows.Forms.MaskedTextBox();
             this.linkLabelCancel = new System.Windows.Forms.LinkLabel();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportAProblemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.provideASuggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtLengthOfEachTone = new System.Windows.Forms.MaskedTextBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBoxSettings.SuspendLayout();
@@ -153,14 +153,6 @@
             this.label6.Size = new System.Drawing.Size(20, 13);
             this.label6.TabIndex = 12;
             this.label6.Text = "ms";
-            // 
-            // txtLengthOfEachTone
-            // 
-            this.txtLengthOfEachTone.Location = new System.Drawing.Point(597, 20);
-            this.txtLengthOfEachTone.Name = "txtLengthOfEachTone";
-            this.txtLengthOfEachTone.Size = new System.Drawing.Size(40, 20);
-            this.txtLengthOfEachTone.TabIndex = 6;
-            this.txtLengthOfEachTone.Text = "225";
             // 
             // label7
             // 
@@ -270,6 +262,43 @@
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userToolStripMenuItem,
+            this.toneToolStripMenuItem,
+            this.toolStripMenuItem2});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // userToolStripMenuItem
+            // 
+            this.userToolStripMenuItem.Checked = true;
+            this.userToolStripMenuItem.CheckOnClick = true;
+            this.userToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.userToolStripMenuItem.Text = "User";
+            // 
+            // toneToolStripMenuItem
+            // 
+            this.toneToolStripMenuItem.Checked = true;
+            this.toneToolStripMenuItem.CheckOnClick = true;
+            this.toneToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toneToolStripMenuItem.Name = "toneToolStripMenuItem";
+            this.toneToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.toneToolStripMenuItem.Text = "Tone";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Checked = true;
+            this.toolStripMenuItem2.CheckOnClick = true;
+            this.toolStripMenuItem2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(116, 22);
+            this.toolStripMenuItem2.Text = "Security";
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -280,6 +309,25 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
             this.toolStripMenuItem1.Text = "Help";
+            // 
+            // reportAProblemToolStripMenuItem
+            // 
+            this.reportAProblemToolStripMenuItem.Name = "reportAProblemToolStripMenuItem";
+            this.reportAProblemToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.reportAProblemToolStripMenuItem.Text = "Report a problem";
+            this.reportAProblemToolStripMenuItem.Click += new System.EventHandler(this.reportAProblemToolStripMenuItem_Click);
+            // 
+            // provideASuggestionToolStripMenuItem
+            // 
+            this.provideASuggestionToolStripMenuItem.Name = "provideASuggestionToolStripMenuItem";
+            this.provideASuggestionToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.provideASuggestionToolStripMenuItem.Text = "Provide a suggestion";
+            this.provideASuggestionToolStripMenuItem.Click += new System.EventHandler(this.provideASuggestionToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
             // 
             // aboutToolStripMenuItem
             // 
@@ -421,16 +469,6 @@
             this.groupBoxSecurity.TabStop = false;
             this.groupBoxSecurity.Text = "Security";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 23);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Log on code:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -441,14 +479,24 @@
             this.label11.Text = "Log off code:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // maskedTextBox1
+            // label5
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(367, 20);
-            this.maskedTextBox1.Mask = "0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(40, 20);
-            this.maskedTextBox1.TabIndex = 5;
-            this.maskedTextBox1.Text = "6000";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(9, 23);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Log on code:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // txtPauseBetweenLines
+            // 
+            this.txtPauseBetweenLines.Location = new System.Drawing.Point(367, 20);
+            this.txtPauseBetweenLines.Mask = "0000";
+            this.txtPauseBetweenLines.Name = "txtPauseBetweenLines";
+            this.txtPauseBetweenLines.Size = new System.Drawing.Size(40, 20);
+            this.txtPauseBetweenLines.TabIndex = 5;
+            this.txtPauseBetweenLines.Text = "6000";
             // 
             // linkLabelCancel
             // 
@@ -461,28 +509,10 @@
             this.linkLabelCancel.Text = "Cancel";
             this.linkLabelCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCancel_LinkClicked);
             // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.userToolStripMenuItem,
-            this.toneToolStripMenuItem,
-            this.toolStripMenuItem2});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Checked = true;
-            this.toolStripMenuItem2.CheckOnClick = true;
-            this.toolStripMenuItem2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem2.Text = "Security";
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.maskedTextBox1);
+            this.groupBox2.Controls.Add(this.txtLengthOfEachTone);
+            this.groupBox2.Controls.Add(this.txtPauseBetweenLines);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label2);
@@ -492,7 +522,6 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtPauseBetweenDigits);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.txtLengthOfEachTone);
             this.groupBox2.Location = new System.Drawing.Point(14, 95);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox2.Name = "groupBox2";
@@ -502,42 +531,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tone";
             // 
-            // userToolStripMenuItem
+            // txtLengthOfEachTone
             // 
-            this.userToolStripMenuItem.Checked = true;
-            this.userToolStripMenuItem.CheckOnClick = true;
-            this.userToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.userToolStripMenuItem.Text = "User";
-            // 
-            // toneToolStripMenuItem
-            // 
-            this.toneToolStripMenuItem.Checked = true;
-            this.toneToolStripMenuItem.CheckOnClick = true;
-            this.toneToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toneToolStripMenuItem.Name = "toneToolStripMenuItem";
-            this.toneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.toneToolStripMenuItem.Text = "Tone";
-            // 
-            // reportAProblemToolStripMenuItem
-            // 
-            this.reportAProblemToolStripMenuItem.Name = "reportAProblemToolStripMenuItem";
-            this.reportAProblemToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.reportAProblemToolStripMenuItem.Text = "Report a problem";
-            this.reportAProblemToolStripMenuItem.Click += new System.EventHandler(this.reportAProblemToolStripMenuItem_Click);
-            // 
-            // provideASuggestionToolStripMenuItem
-            // 
-            this.provideASuggestionToolStripMenuItem.Name = "provideASuggestionToolStripMenuItem";
-            this.provideASuggestionToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.provideASuggestionToolStripMenuItem.Text = "Provide a suggestion";
-            this.provideASuggestionToolStripMenuItem.Click += new System.EventHandler(this.provideASuggestionToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
+            this.txtLengthOfEachTone.Location = new System.Drawing.Point(597, 20);
+            this.txtLengthOfEachTone.Mask = "000";
+            this.txtLengthOfEachTone.Name = "txtLengthOfEachTone";
+            this.txtLengthOfEachTone.Size = new System.Drawing.Size(40, 20);
+            this.txtLengthOfEachTone.TabIndex = 20;
+            this.txtLengthOfEachTone.Text = "225";
             // 
             // Form1
             // 
@@ -586,7 +587,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtLengthOfEachTone;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbComPort;
@@ -616,7 +616,7 @@
         private System.Windows.Forms.GroupBox groupBoxSecurity;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txtPauseBetweenLines;
         private System.Windows.Forms.LinkLabel linkLabelCancel;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
@@ -626,6 +626,7 @@
         private System.Windows.Forms.ToolStripMenuItem reportAProblemToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem provideASuggestionToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.MaskedTextBox txtLengthOfEachTone;
     }
 }
 
