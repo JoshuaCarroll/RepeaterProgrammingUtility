@@ -450,5 +450,20 @@ namespace Repeater_Programming_Utility
         {
             System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new?labels=enhancement");
         }
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            groupBoxUser.Visible = userToolStripMenuItem.Checked;
+        }
+
+        private void toneToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            groupBoxTone.Visible = toneToolStripMenuItem.Checked;
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            groupBoxSecurity.Visible = securityToolStripMenuItem.Checked;
+        }
     }
 }

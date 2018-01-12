@@ -52,7 +52,7 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.securityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reportAProblemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.provideASuggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,21 +67,21 @@
             this.btnLogon = new System.Windows.Forms.Button();
             this.btnLogoff = new System.Windows.Forms.Button();
             this.txtLogoffCode = new System.Windows.Forms.TextBox();
-            this.groupBoxSettings = new System.Windows.Forms.GroupBox();
+            this.groupBoxUser = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBoxSecurity = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPauseBetweenLines = new System.Windows.Forms.MaskedTextBox();
             this.linkLabelCancel = new System.Windows.Forms.LinkLabel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxTone = new System.Windows.Forms.GroupBox();
             this.txtLengthOfEachTone = new System.Windows.Forms.MaskedTextBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.groupBoxSettings.SuspendLayout();
+            this.groupBoxUser.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBoxSecurity.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxTone.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtDtmfTones
@@ -267,7 +267,7 @@
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userToolStripMenuItem,
             this.toneToolStripMenuItem,
-            this.toolStripMenuItem2});
+            this.securityToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -278,8 +278,9 @@
             this.userToolStripMenuItem.CheckOnClick = true;
             this.userToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userToolStripMenuItem.Text = "User";
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
             // toneToolStripMenuItem
             // 
@@ -287,17 +288,19 @@
             this.toneToolStripMenuItem.CheckOnClick = true;
             this.toneToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toneToolStripMenuItem.Name = "toneToolStripMenuItem";
-            this.toneToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.toneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.toneToolStripMenuItem.Text = "Tone";
+            this.toneToolStripMenuItem.Click += new System.EventHandler(this.toneToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
+            // securityToolStripMenuItem
             // 
-            this.toolStripMenuItem2.Checked = true;
-            this.toolStripMenuItem2.CheckOnClick = true;
-            this.toolStripMenuItem2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(116, 22);
-            this.toolStripMenuItem2.Text = "Security";
+            this.securityToolStripMenuItem.Checked = true;
+            this.securityToolStripMenuItem.CheckOnClick = true;
+            this.securityToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.securityToolStripMenuItem.Name = "securityToolStripMenuItem";
+            this.securityToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.securityToolStripMenuItem.Text = "Security";
+            this.securityToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -425,20 +428,20 @@
             this.txtLogoffCode.TabIndex = 9;
             this.txtLogoffCode.Text = "189";
             // 
-            // groupBoxSettings
+            // groupBoxUser
             // 
-            this.groupBoxSettings.Controls.Add(this.label8);
-            this.groupBoxSettings.Controls.Add(this.cbComPort);
-            this.groupBoxSettings.Controls.Add(this.txtCallsign);
-            this.groupBoxSettings.Controls.Add(this.label9);
-            this.groupBoxSettings.Location = new System.Drawing.Point(14, 29);
-            this.groupBoxSettings.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBoxSettings.Name = "groupBoxSettings";
-            this.groupBoxSettings.Padding = new System.Windows.Forms.Padding(6, 10, 6, 6);
-            this.groupBoxSettings.Size = new System.Drawing.Size(875, 56);
-            this.groupBoxSettings.TabIndex = 1;
-            this.groupBoxSettings.TabStop = false;
-            this.groupBoxSettings.Text = "User";
+            this.groupBoxUser.Controls.Add(this.label8);
+            this.groupBoxUser.Controls.Add(this.cbComPort);
+            this.groupBoxUser.Controls.Add(this.txtCallsign);
+            this.groupBoxUser.Controls.Add(this.label9);
+            this.groupBoxUser.Location = new System.Drawing.Point(14, 29);
+            this.groupBoxUser.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBoxUser.Name = "groupBoxUser";
+            this.groupBoxUser.Padding = new System.Windows.Forms.Padding(6, 10, 6, 6);
+            this.groupBoxUser.Size = new System.Drawing.Size(875, 56);
+            this.groupBoxUser.TabIndex = 1;
+            this.groupBoxUser.TabStop = false;
+            this.groupBoxUser.Text = "User";
             // 
             // groupBox1
             // 
@@ -509,27 +512,27 @@
             this.linkLabelCancel.Text = "Cancel";
             this.linkLabelCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCancel_LinkClicked);
             // 
-            // groupBox2
+            // groupBoxTone
             // 
-            this.groupBox2.Controls.Add(this.txtLengthOfEachTone);
-            this.groupBox2.Controls.Add(this.txtPauseBetweenLines);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtCommentCharacter);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtPauseBetweenDigits);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(14, 95);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(6, 10, 6, 6);
-            this.groupBox2.Size = new System.Drawing.Size(875, 56);
-            this.groupBox2.TabIndex = 32;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tone";
+            this.groupBoxTone.Controls.Add(this.txtLengthOfEachTone);
+            this.groupBoxTone.Controls.Add(this.txtPauseBetweenLines);
+            this.groupBoxTone.Controls.Add(this.label1);
+            this.groupBoxTone.Controls.Add(this.label10);
+            this.groupBoxTone.Controls.Add(this.label2);
+            this.groupBoxTone.Controls.Add(this.txtCommentCharacter);
+            this.groupBoxTone.Controls.Add(this.label3);
+            this.groupBoxTone.Controls.Add(this.label6);
+            this.groupBoxTone.Controls.Add(this.label4);
+            this.groupBoxTone.Controls.Add(this.txtPauseBetweenDigits);
+            this.groupBoxTone.Controls.Add(this.label7);
+            this.groupBoxTone.Location = new System.Drawing.Point(14, 95);
+            this.groupBoxTone.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBoxTone.Name = "groupBoxTone";
+            this.groupBoxTone.Padding = new System.Windows.Forms.Padding(6, 10, 6, 6);
+            this.groupBoxTone.Size = new System.Drawing.Size(875, 56);
+            this.groupBoxTone.TabIndex = 32;
+            this.groupBoxTone.TabStop = false;
+            this.groupBoxTone.Text = "Tone";
             // 
             // txtLengthOfEachTone
             // 
@@ -545,11 +548,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 465);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBoxTone);
             this.Controls.Add(this.linkLabelCancel);
             this.Controls.Add(this.groupBoxSecurity);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBoxSettings);
+            this.Controls.Add(this.groupBoxUser);
             this.Controls.Add(this.cbIdAfter);
             this.Controls.Add(this.cbIdBefore);
             this.Controls.Add(this.statusStrip1);
@@ -565,14 +568,14 @@
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBoxSettings.ResumeLayout(false);
-            this.groupBoxSettings.PerformLayout();
+            this.groupBoxUser.ResumeLayout(false);
+            this.groupBoxUser.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBoxSecurity.ResumeLayout(false);
             this.groupBoxSecurity.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.groupBoxTone.ResumeLayout(false);
+            this.groupBoxTone.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -611,7 +614,7 @@
         private System.Windows.Forms.Button btnLogon;
         private System.Windows.Forms.Button btnLogoff;
         private System.Windows.Forms.TextBox txtLogoffCode;
-        private System.Windows.Forms.GroupBox groupBoxSettings;
+        private System.Windows.Forms.GroupBox groupBoxUser;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBoxSecurity;
         private System.Windows.Forms.Label label11;
@@ -619,8 +622,8 @@
         private System.Windows.Forms.MaskedTextBox txtPauseBetweenLines;
         private System.Windows.Forms.LinkLabel linkLabelCancel;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ToolStripMenuItem securityToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBoxTone;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportAProblemToolStripMenuItem;
