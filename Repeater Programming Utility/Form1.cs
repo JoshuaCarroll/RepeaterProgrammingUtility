@@ -401,22 +401,54 @@ namespace Repeater_Programming_Utility
 
         private void btnLogon_Click(object sender, EventArgs e)
         {
+            bool chkBefore = cbIdBefore.Checked;
+            bool chkAfter = cbIdAfter.Checked;
+            string originalValue = txtDtmfTones.Text;
+
             cbIdBefore.Checked = true;
             cbIdBefore.Checked = false;
-            string originalValue = txtDtmfTones.Text;
             txtDtmfTones.Text = txtLogonCode.Text;
             btnSend_Click(sender, e);
+
             txtDtmfTones.Text = originalValue;
+            cbIdBefore.Checked = chkBefore;
+            cbIdAfter.Checked = chkAfter;
         }
 
         private void btnLogoff_Click(object sender, EventArgs e)
         {
+            bool chkBefore = cbIdBefore.Checked;
+            bool chkAfter = cbIdAfter.Checked;
+            string originalValue = txtDtmfTones.Text;
+
             cbIdBefore.Checked = false;
             cbIdBefore.Checked = true;
-            string originalValue = txtDtmfTones.Text;
             txtDtmfTones.Text = txtLogoffCode.Text;
             btnSend_Click(sender, e);
+
             txtDtmfTones.Text = originalValue;
+            cbIdBefore.Checked = chkBefore;
+            cbIdAfter.Checked = chkAfter;
+        }
+
+        private void linkLabelCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility#user-content-n5jlc-repeater-programming-utility");
+        }
+
+        private void reportAProblemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new?body=-%20What%20were%20you%20trying%20to%20do%3F%20%0D%0A%0D%0A%0D%0A-%20What%20happened%20instead%3F%0D%0A%0D%0A%0D%0A_____%0D%0AOS%3A%20Windows%0D%0ASoftware%20version%3A%200.0&labels=bug");
+        }
+
+        private void provideASuggestionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new?labels=enhancement");
         }
     }
 }
