@@ -68,7 +68,7 @@
             this.btnLogoff = new System.Windows.Forms.Button();
             this.txtLogoffCode = new System.Windows.Forms.TextBox();
             this.groupBoxUser = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxDtmf = new System.Windows.Forms.GroupBox();
             this.groupBoxSecurity = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBoxUser.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxDtmf.SuspendLayout();
             this.groupBoxSecurity.SuspendLayout();
             this.groupBoxTone.SuspendLayout();
             this.SuspendLayout();
@@ -279,6 +279,7 @@
             this.userToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.userToolStripMenuItem.Tag = "groupBoxUser";
             this.userToolStripMenuItem.Text = "User";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
             // 
@@ -289,6 +290,7 @@
             this.toneToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toneToolStripMenuItem.Name = "toneToolStripMenuItem";
             this.toneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.toneToolStripMenuItem.Tag = "groupBoxTone";
             this.toneToolStripMenuItem.Text = "Tone";
             this.toneToolStripMenuItem.Click += new System.EventHandler(this.toneToolStripMenuItem_Click);
             // 
@@ -299,6 +301,7 @@
             this.securityToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.securityToolStripMenuItem.Name = "securityToolStripMenuItem";
             this.securityToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.securityToolStripMenuItem.Tag = "groupBoxSecurity";
             this.securityToolStripMenuItem.Text = "Security";
             this.securityToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
@@ -370,6 +373,7 @@
             // 
             // cbIdBefore
             // 
+            this.cbIdBefore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbIdBefore.AutoSize = true;
             this.cbIdBefore.Checked = true;
             this.cbIdBefore.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -382,6 +386,7 @@
             // 
             // cbIdAfter
             // 
+            this.cbIdAfter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbIdAfter.AutoSize = true;
             this.cbIdAfter.Checked = true;
             this.cbIdAfter.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -443,17 +448,20 @@
             this.groupBoxUser.TabStop = false;
             this.groupBoxUser.Text = "User";
             // 
-            // groupBox1
+            // groupBoxDtmf
             // 
-            this.groupBox1.Controls.Add(this.txtDtmfTones);
-            this.groupBox1.Location = new System.Drawing.Point(15, 227);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(874, 177);
-            this.groupBox1.TabIndex = 29;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DTMF to send";
+            this.groupBoxDtmf.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxDtmf.Controls.Add(this.txtDtmfTones);
+            this.groupBoxDtmf.Location = new System.Drawing.Point(15, 227);
+            this.groupBoxDtmf.Margin = new System.Windows.Forms.Padding(5);
+            this.groupBoxDtmf.Name = "groupBoxDtmf";
+            this.groupBoxDtmf.Padding = new System.Windows.Forms.Padding(6);
+            this.groupBoxDtmf.Size = new System.Drawing.Size(874, 177);
+            this.groupBoxDtmf.TabIndex = 29;
+            this.groupBoxDtmf.TabStop = false;
+            this.groupBoxDtmf.Text = "DTMF to send";
             // 
             // groupBoxSecurity
             // 
@@ -503,6 +511,7 @@
             // 
             // linkLabelCancel
             // 
+            this.linkLabelCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelCancel.AutoSize = true;
             this.linkLabelCancel.Location = new System.Drawing.Point(817, 416);
             this.linkLabelCancel.Name = "linkLabelCancel";
@@ -551,7 +560,7 @@
             this.Controls.Add(this.groupBoxTone);
             this.Controls.Add(this.linkLabelCancel);
             this.Controls.Add(this.groupBoxSecurity);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxDtmf);
             this.Controls.Add(this.groupBoxUser);
             this.Controls.Add(this.cbIdAfter);
             this.Controls.Add(this.cbIdBefore);
@@ -570,8 +579,8 @@
             this.menuStrip1.PerformLayout();
             this.groupBoxUser.ResumeLayout(false);
             this.groupBoxUser.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxDtmf.ResumeLayout(false);
+            this.groupBoxDtmf.PerformLayout();
             this.groupBoxSecurity.ResumeLayout(false);
             this.groupBoxSecurity.PerformLayout();
             this.groupBoxTone.ResumeLayout(false);
@@ -615,7 +624,7 @@
         private System.Windows.Forms.Button btnLogoff;
         private System.Windows.Forms.TextBox txtLogoffCode;
         private System.Windows.Forms.GroupBox groupBoxUser;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxDtmf;
         private System.Windows.Forms.GroupBox groupBoxSecurity;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label5;

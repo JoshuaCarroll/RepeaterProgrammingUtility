@@ -453,17 +453,55 @@ namespace Repeater_Programming_Utility
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             groupBoxUser.Visible = userToolStripMenuItem.Checked;
+            layoutSettings();
         }
 
         private void toneToolStripMenuItem_Click(object sender, EventArgs e)
         {
             groupBoxTone.Visible = toneToolStripMenuItem.Checked;
+            layoutSettings();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             groupBoxSecurity.Visible = securityToolStripMenuItem.Checked;
+            layoutSettings();
+        }
+
+        private void settigsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GroupBox gb = (GroupBox)sender;
+            groupBoxSecurity.Visible = securityToolStripMenuItem.Checked;
+            layoutSettings();
+        }
+
+        private void layoutSettings()
+        {
+            int numVisible = 0;
+            numVisible += (groupBoxUser.Visible) ? 1 : 0;
+            numVisible += (groupBoxTone.Visible) ? 1 : 0;
+            numVisible += (groupBoxSecurity.Visible) ? 1 : 0;
+
+            List<GroupBox> boxes = new List<GroupBox>();
+            boxes.Add(groupBoxUser);
+            boxes.Add(groupBoxTone);
+            boxes.Add(groupBoxSecurity);
+
+            int posY = 29;
+            for (int i = 0; i < boxes.Count; i++)
+            {
+                if (boxes[i].Visible)
+                {
+                    boxes[i].Top = posY;
+                    posY += 66;
+                }
+            }
+
+            groupBoxDtmf.Location = new Point(14, posY);
+            groupBoxDtmf.Height = this.Height - groupBoxDtmf.Top - 99;
+            /// TODO: Do some kind of fancy math thing instead of a hard coded, pedestrian value like, heh, "99"
         }
     }
 }
