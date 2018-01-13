@@ -61,8 +61,8 @@
             this.txtCommentCharacter = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtPauseBetweenDigits = new System.Windows.Forms.MaskedTextBox();
-            this.cbIdBefore = new System.Windows.Forms.CheckBox();
-            this.cbIdAfter = new System.Windows.Forms.CheckBox();
+            this.chkIdBefore = new System.Windows.Forms.CheckBox();
+            this.chkIdAfter = new System.Windows.Forms.CheckBox();
             this.txtLogonCode = new System.Windows.Forms.TextBox();
             this.btnLogon = new System.Windows.Forms.Button();
             this.btnLogoff = new System.Windows.Forms.Button();
@@ -281,7 +281,7 @@
             this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.userToolStripMenuItem.Tag = "groupBoxUser";
             this.userToolStripMenuItem.Text = "User";
-            this.userToolStripMenuItem.Click += new System.EventHandler(this.userToolStripMenuItem_Click);
+            this.userToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // toneToolStripMenuItem
             // 
@@ -292,7 +292,7 @@
             this.toneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.toneToolStripMenuItem.Tag = "groupBoxTone";
             this.toneToolStripMenuItem.Text = "Tone";
-            this.toneToolStripMenuItem.Click += new System.EventHandler(this.toneToolStripMenuItem_Click);
+            this.toneToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // securityToolStripMenuItem
             // 
@@ -303,7 +303,7 @@
             this.securityToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.securityToolStripMenuItem.Tag = "groupBoxSecurity";
             this.securityToolStripMenuItem.Text = "Security";
-            this.securityToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.securityToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -371,31 +371,31 @@
             this.txtPauseBetweenDigits.TabIndex = 4;
             this.txtPauseBetweenDigits.Text = "225";
             // 
-            // cbIdBefore
+            // chkIdBefore
             // 
-            this.cbIdBefore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbIdBefore.AutoSize = true;
-            this.cbIdBefore.Checked = true;
-            this.cbIdBefore.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbIdBefore.Location = new System.Drawing.Point(489, 415);
-            this.cbIdBefore.Name = "cbIdBefore";
-            this.cbIdBefore.Size = new System.Drawing.Size(99, 17);
-            this.cbIdBefore.TabIndex = 12;
-            this.cbIdBefore.Text = "ID before tones";
-            this.cbIdBefore.UseVisualStyleBackColor = true;
+            this.chkIdBefore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkIdBefore.AutoSize = true;
+            this.chkIdBefore.Checked = true;
+            this.chkIdBefore.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkIdBefore.Location = new System.Drawing.Point(489, 415);
+            this.chkIdBefore.Name = "chkIdBefore";
+            this.chkIdBefore.Size = new System.Drawing.Size(99, 17);
+            this.chkIdBefore.TabIndex = 12;
+            this.chkIdBefore.Text = "ID before tones";
+            this.chkIdBefore.UseVisualStyleBackColor = true;
             // 
-            // cbIdAfter
+            // chkIdAfter
             // 
-            this.cbIdAfter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbIdAfter.AutoSize = true;
-            this.cbIdAfter.Checked = true;
-            this.cbIdAfter.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbIdAfter.Location = new System.Drawing.Point(611, 415);
-            this.cbIdAfter.Name = "cbIdAfter";
-            this.cbIdAfter.Size = new System.Drawing.Size(90, 17);
-            this.cbIdAfter.TabIndex = 13;
-            this.cbIdAfter.Text = "ID after tones";
-            this.cbIdAfter.UseVisualStyleBackColor = true;
+            this.chkIdAfter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkIdAfter.AutoSize = true;
+            this.chkIdAfter.Checked = true;
+            this.chkIdAfter.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkIdAfter.Location = new System.Drawing.Point(611, 415);
+            this.chkIdAfter.Name = "chkIdAfter";
+            this.chkIdAfter.Size = new System.Drawing.Size(90, 17);
+            this.chkIdAfter.TabIndex = 13;
+            this.chkIdAfter.Text = "ID after tones";
+            this.chkIdAfter.UseVisualStyleBackColor = true;
             // 
             // txtLogonCode
             // 
@@ -562,8 +562,8 @@
             this.Controls.Add(this.groupBoxSecurity);
             this.Controls.Add(this.groupBoxDtmf);
             this.Controls.Add(this.groupBoxUser);
-            this.Controls.Add(this.cbIdAfter);
-            this.Controls.Add(this.cbIdBefore);
+            this.Controls.Add(this.chkIdAfter);
+            this.Controls.Add(this.chkIdBefore);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnSend);
@@ -572,6 +572,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "N5JLC Repeater Programming Utility";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -617,8 +618,8 @@
         private System.Windows.Forms.TextBox txtCommentCharacter;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.MaskedTextBox txtPauseBetweenDigits;
-        private System.Windows.Forms.CheckBox cbIdBefore;
-        private System.Windows.Forms.CheckBox cbIdAfter;
+        private System.Windows.Forms.CheckBox chkIdBefore;
+        private System.Windows.Forms.CheckBox chkIdAfter;
         private System.Windows.Forms.TextBox txtLogonCode;
         private System.Windows.Forms.Button btnLogon;
         private System.Windows.Forms.Button btnLogoff;
