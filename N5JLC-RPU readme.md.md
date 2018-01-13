@@ -32,4 +32,6 @@
 <p>The only system prerequisite is .NET Framework v4.5, which is already installed on Windows computers that are regularly updated.  <s>If there is an Internet connection when the program is opened it will look for an update and, if one is available, prompt the user to install it.</s> (Coming soon)</p>
 <h2 id="contributing">Contributing</h2>
 <p>You can contribute to this project by using the program and providing feedback, submitting issues, or by assisting in the programming and submitting pull requests.  In either case, please read the <a href="CONTRIBUTING.md">contributing page</a> for instructions.</p>
+<h2 id="credits">Credits</h2>
+<p>Icon created by <a href="http://icons8.com">icons8.com</a> under <a href="http://icons8.com/license/">this license</a>.</p>
 
