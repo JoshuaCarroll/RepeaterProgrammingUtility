@@ -39,5 +39,9 @@
 <h2 id="contributing">Contributing</h2>
 <p>You can contribute to this project by using the program and providing feedback, submitting issues, or by assisting in the programming and submitting pull requests.  In either case, please read the <a href="CONTRIBUTING.md">contributing page</a> for instructions.</p>
 <h2 id="credits">Credits</h2>
-<p><em>Icons8-Windows-8-Industry-Radio-Tower.ico</em> created by <a href="http://icons8.com">icons8.com</a> and used under <a href="http://icons8.com/license/">this license</a>.</p>
+<ul>
+<li>Thanks to my dad, <a href="https://www.qrz.com/db/n5gc">N5GC</a> for introducing me to both programming and ham radio - interests that respectively fill and empty my wallet.</li>
+<li>Many thanks for <a href="https://www.qrz.com/db/n5qlc">N5QLC</a> and <a href="https://www.qrz.com/db/k5tel">K5TEL</a> who trusted me to program the <a href="https://cauhf.org/arlinks-system/">AR Links System</a> hub controller - the experience of which was the driving force behind creating this utility.</li>
+<li><em>Icons8-Windows-8-Industry-Radio-Tower.ico</em> created by <a href="http://icons8.com">icons8.com</a> and used under <a href="http://icons8.com/license/">this license</a>.</li>
+</ul>
 
