@@ -34,6 +34,8 @@
 <li>Click <strong>Install</strong>.</li>
 </ol>
 <p>The program will automatically look for an updated version if there is an Internet connection when the program is opened.  If an update is available then the user will be asked if they want to install it.</p>
+<h2 id="support">Support</h2>
+<p>This is open-source, free software.  This typically means, and is true in this case, that it is community supported.  If you find a bug, check to see if there is already an issue open to address it before you submit one.  If you have a suggestion please open an issue and share your idea.</p>
 <h2 id="contributing">Contributing</h2>
 <p>You can contribute to this project by using the program and providing feedback, submitting issues, or by assisting in the programming and submitting pull requests.  In either case, please read the <a href="CONTRIBUTING.md">contributing page</a> for instructions.</p>
 <h2 id="credits">Credits</h2>
