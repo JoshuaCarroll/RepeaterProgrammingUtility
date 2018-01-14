@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.txtDtmfTones = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -278,7 +279,7 @@
             this.userToolStripMenuItem.CheckOnClick = true;
             this.userToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-            this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.userToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.userToolStripMenuItem.Tag = "groupBoxUser";
             this.userToolStripMenuItem.Text = "User";
             this.userToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
@@ -289,7 +290,7 @@
             this.toneToolStripMenuItem.CheckOnClick = true;
             this.toneToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toneToolStripMenuItem.Name = "toneToolStripMenuItem";
-            this.toneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.toneToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.toneToolStripMenuItem.Tag = "groupBoxTone";
             this.toneToolStripMenuItem.Text = "Tone";
             this.toneToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
@@ -300,7 +301,7 @@
             this.securityToolStripMenuItem.CheckOnClick = true;
             this.securityToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.securityToolStripMenuItem.Name = "securityToolStripMenuItem";
-            this.securityToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.securityToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.securityToolStripMenuItem.Tag = "groupBoxSecurity";
             this.securityToolStripMenuItem.Text = "Security";
             this.securityToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
@@ -567,6 +568,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnSend);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(920, 503);
             this.Name = "Form1";
