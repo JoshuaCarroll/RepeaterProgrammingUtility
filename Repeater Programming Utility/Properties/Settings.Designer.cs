@@ -26,36 +26,192 @@ namespace Repeater_Programming_Utility.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SerialNumber {
+        public string callSign {
             get {
-                return ((string)(this["SerialNumber"]));
+                return ((string)(this["callSign"]));
             }
             set {
-                this["SerialNumber"] = value;
+                this["callSign"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("N5JLC")]
-        public string CallSign {
+        [global::System.Configuration.DefaultSettingValueAttribute("VOX")]
+        public string comPort {
             get {
-                return ((string)(this["CallSign"]));
+                return ((string)(this["comPort"]));
             }
             set {
-                this["CallSign"] = value;
+                this["comPort"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Joshua Carroll")]
-        public string FullName {
+        [global::System.Configuration.DefaultSettingValueAttribute("225")]
+        public string pauseBetweenDigits {
             get {
-                return ((string)(this["FullName"]));
+                return ((string)(this["pauseBetweenDigits"]));
             }
             set {
-                this["FullName"] = value;
+                this["pauseBetweenDigits"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("6000")]
+        public string pauseBetweenLines {
+            get {
+                return ((string)(this["pauseBetweenLines"]));
+            }
+            set {
+                this["pauseBetweenLines"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("225")]
+        public string lengthOfEachTone {
+            get {
+                return ((string)(this["lengthOfEachTone"]));
+            }
+            set {
+                this["lengthOfEachTone"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(";")]
+        public string commentCharacter {
+            get {
+                return ((string)(this["commentCharacter"]));
+            }
+            set {
+                this["commentCharacter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string logonCode {
+            get {
+                return ((string)(this["logonCode"]));
+            }
+            set {
+                this["logonCode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string logoffCode {
+            get {
+                return ((string)(this["logoffCode"]));
+            }
+            set {
+                this["logoffCode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string fileOpenSaveLocation {
+            get {
+                return ((string)(this["fileOpenSaveLocation"]));
+            }
+            set {
+                this["fileOpenSaveLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1, -1")]
+        public global::System.Drawing.Point windowLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["windowLocation"]));
+            }
+            set {
+                this["windowLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.Forms.FormWindowState windowState {
+            get {
+                return ((global::System.Windows.Forms.FormWindowState)(this["windowState"]));
+            }
+            set {
+                this["windowState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool viewUser {
+            get {
+                return ((bool)(this["viewUser"]));
+            }
+            set {
+                this["viewUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool viewTone {
+            get {
+                return ((bool)(this["viewTone"]));
+            }
+            set {
+                this["viewTone"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool viewSecurity {
+            get {
+                return ((bool)(this["viewSecurity"]));
+            }
+            set {
+                this["viewSecurity"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool idBeforeTones {
+            get {
+                return ((bool)(this["idBeforeTones"]));
+            }
+            set {
+                this["idBeforeTones"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool idAfterTones {
+            get {
+                return ((bool)(this["idAfterTones"]));
+            }
+            set {
+                this["idAfterTones"] = value;
             }
         }
     }

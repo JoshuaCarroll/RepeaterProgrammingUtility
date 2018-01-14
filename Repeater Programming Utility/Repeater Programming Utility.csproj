@@ -14,7 +14,7 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>http://www.decodethecode.com/radio_tools/repeater_programming_utility/</PublishUrl>
+    <PublishUrl>ftp://home553920072.1and1-data.host/radio_tools/repeater_programming_utility/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -24,12 +24,17 @@
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.n5jlc.com/radio_tools/repeater_programming_utility/</InstallUrl>
     <UpdateUrl>http://www.decodethecode.com/radio_tools/repeater_programming_utility/</UpdateUrl>
+    <SupportUrl>https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/wiki</SupportUrl>
+    <ErrorReportUrl>https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new%3fbody=-%2520What%2520were%2520you%2520trying%2520to%2520do%253F%2520%250D%250A%250D%250A%250D%250A-%2520What%2520happened%2520instead%253F%250D%250A%250D%250A%250D%250A_____%250D%250AOS%253A%2520Windows%250D%250ASoftware%2520version%253A%25200.0&amp;labels=bug</ErrorReportUrl>
+    <TargetCulture>en</TargetCulture>
+    <ProductName>N5JLC Repeater Programming Utility</ProductName>
+    <PublisherName>Joshua Carroll, N5JLC</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <WebPage>welcome.htm</WebPage>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>6</ApplicationRevision>
-    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <WebPage>index.htm</WebPage>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -75,6 +80,9 @@
   <PropertyGroup>
     <StartupObject>Repeater_Programming_Utility.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icons8-Windows-8-Industry-Radio-Tower.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="NAudio, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NAudio.1.8.4\lib\net35\NAudio.dll</HintPath>
@@ -117,6 +125,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -165,6 +174,9 @@
       <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons8-Windows-8-Industry-Radio-Tower.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

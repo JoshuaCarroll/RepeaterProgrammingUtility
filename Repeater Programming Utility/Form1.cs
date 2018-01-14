@@ -12,6 +12,8 @@ namespace Repeater_Programming_Utility
     {
         public SerialPort port;
         private Thread voxThread;
+        
+        // Change these to application level settings
         private Color transmittingColor = Color.Aquamarine;
         private int PauseBeforeAfterKeyup = 500;
         private int ExtraPauseForVox = 1000;
@@ -43,8 +45,38 @@ namespace Repeater_Programming_Utility
             port.Handshake = Handshake.RequestToSend;
             controlPtt(port, PttState.Closed);
 
-            txtCallsign.Text = Properties.Settings.Default.CallSign;
+            // Load last user settings
+            txtCallsign.Text = Properties.Settings.Default.callSign;
+            cbComPort.Text = Properties.Settings.Default.comPort;
+            txtPauseBetweenDigits.Text = Properties.Settings.Default.pauseBetweenDigits;
+            txtPauseBetweenLines.Text = Properties.Settings.Default.pauseBetweenLines;
+            txtLengthOfEachTone.Text = Properties.Settings.Default.lengthOfEachTone;
+            txtCommentCharacter.Text = Properties.Settings.Default.commentCharacter;
+            txtLogonCode.Text = Properties.Settings.Default.logonCode;
+            txtLogoffCode.Text = Properties.Settings.Default.logoffCode;
+            //TODO: assign to file open/save dialog = Properties.Settings.Default.fileOpenSaveLocation;
+            chkIdBefore.Checked = Properties.Settings.Default.idBeforeTones;
+            chkIdAfter.Checked = Properties.Settings.Default.idAfterTones;
+
+            userToolStripMenuItem.Checked = Properties.Settings.Default.viewUser;
+            settingsToolStripMenuItem_Click(userToolStripMenuItem, new EventArgs());
+            toneToolStripMenuItem.Checked = Properties.Settings.Default.viewTone;
+            settingsToolStripMenuItem_Click(toneToolStripMenuItem, new EventArgs());
+            securityToolStripMenuItem.Checked = Properties.Settings.Default.viewSecurity;
+            settingsToolStripMenuItem_Click(securityToolStripMenuItem, new EventArgs());
+
+            if (Properties.Settings.Default.windowLocation == new Point(-1,-1))
+            {
+                this.CenterToScreen();
+            }
+            else
+            {
+                this.Location = Properties.Settings.Default.windowLocation;
+            }
+            this.WindowState = Properties.Settings.Default.windowState;
+
         }
+
         private void NumericTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((Char.IsDigit(e.KeyChar)) || (Char.IsControl(e.KeyChar)))
@@ -175,7 +207,7 @@ namespace Repeater_Programming_Utility
 
                 string CallSign = toLetters(txtCallsign.Text);
 
-                if (cbIdBefore.Checked)
+                if (chkIdBefore.Checked)
                 {
                     using (SpeechSynthesizer synth = new SpeechSynthesizer())
                     {
@@ -227,7 +259,7 @@ namespace Repeater_Programming_Utility
                     }
                 }
 
-                if (cbIdAfter.Checked)
+                if (chkIdAfter.Checked)
                 {
                     using (SpeechSynthesizer synth2 = new SpeechSynthesizer())
                     {
@@ -401,22 +433,112 @@ namespace Repeater_Programming_Utility
 
         private void btnLogon_Click(object sender, EventArgs e)
         {
-            cbIdBefore.Checked = true;
-            cbIdBefore.Checked = false;
+            bool chkBefore = chkIdBefore.Checked;
+            bool chkAfter = chkIdAfter.Checked;
             string originalValue = txtDtmfTones.Text;
+
+            chkIdBefore.Checked = true;
+            chkIdBefore.Checked = false;
             txtDtmfTones.Text = txtLogonCode.Text;
             btnSend_Click(sender, e);
+
             txtDtmfTones.Text = originalValue;
+            chkIdBefore.Checked = chkBefore;
+            chkIdAfter.Checked = chkAfter;
         }
 
         private void btnLogoff_Click(object sender, EventArgs e)
         {
-            cbIdBefore.Checked = false;
-            cbIdBefore.Checked = true;
+            bool chkBefore = chkIdBefore.Checked;
+            bool chkAfter = chkIdAfter.Checked;
             string originalValue = txtDtmfTones.Text;
+
+            chkIdBefore.Checked = false;
+            chkIdBefore.Checked = true;
             txtDtmfTones.Text = txtLogoffCode.Text;
             btnSend_Click(sender, e);
+
             txtDtmfTones.Text = originalValue;
+            chkIdBefore.Checked = chkBefore;
+            chkIdAfter.Checked = chkAfter;
+        }
+
+        private void linkLabelCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility#user-content-n5jlc-repeater-programming-utility");
+        }
+
+        private void reportAProblemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new?body=-%20What%20were%20you%20trying%20to%20do%3F%20%0D%0A%0D%0A%0D%0A-%20What%20happened%20instead%3F%0D%0A%0D%0A%0D%0A_____%0D%0AOS%3A%20Windows%0D%0ASoftware%20version%3A%200.0&labels=bug");
+        }
+
+        private void provideASuggestionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new?labels=enhancement");
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem ts = (ToolStripMenuItem)sender;
+            GroupBox gb = (GroupBox)this.Controls.Find(ts.Tag.ToString(), true)[0];
+            
+            gb.Visible = ts.Checked;
+            layoutSettings();
+        }
+
+        private void layoutSettings()
+        {
+            int numVisible = 0;
+            numVisible += (groupBoxUser.Visible) ? 1 : 0;
+            numVisible += (groupBoxTone.Visible) ? 1 : 0;
+            numVisible += (groupBoxSecurity.Visible) ? 1 : 0;
+
+            List<GroupBox> boxes = new List<GroupBox>();
+            boxes.Add(groupBoxUser);
+            boxes.Add(groupBoxTone);
+            boxes.Add(groupBoxSecurity);
+
+            int posY = 29;
+            for (int i = 0; i < boxes.Count; i++)
+            {
+                if (boxes[i].Visible)
+                {
+                    boxes[i].Top = posY;
+                    posY += 66;
+                }
+            }
+
+            groupBoxDtmf.Location = new Point(14, posY);
+            groupBoxDtmf.Height = this.Height - groupBoxDtmf.Top - 99;
+            /// TODO: Do some kind of fancy math thing instead of a hard coded, pedestrian value like, heh, "99"
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.callSign = txtCallsign.Text;
+            Properties.Settings.Default.comPort = cbComPort.Text;
+            Properties.Settings.Default.pauseBetweenDigits = txtPauseBetweenDigits.Text;
+            Properties.Settings.Default.pauseBetweenLines = txtPauseBetweenLines.Text;
+            Properties.Settings.Default.lengthOfEachTone = txtLengthOfEachTone.Text;
+            Properties.Settings.Default.commentCharacter = txtCommentCharacter.Text;
+            Properties.Settings.Default.logonCode = txtLogonCode.Text;
+            Properties.Settings.Default.logoffCode = txtLogoffCode.Text;
+            //TODO: assign from file open/save dialog = Properties.Settings.Default.fileOpenSaveLocation;
+            Properties.Settings.Default.idBeforeTones = chkIdBefore.Checked;
+            Properties.Settings.Default.idAfterTones = chkIdAfter.Checked;
+            Properties.Settings.Default.viewUser = userToolStripMenuItem.Checked;
+            Properties.Settings.Default.viewTone = toneToolStripMenuItem.Checked;
+            Properties.Settings.Default.viewSecurity = securityToolStripMenuItem.Checked;
+            Properties.Settings.Default.windowLocation = this.Location;
+            Properties.Settings.Default.windowState = this.WindowState;
+            
+            Properties.Settings.Default.Save();
         }
     }
 }
