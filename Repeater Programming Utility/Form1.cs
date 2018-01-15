@@ -438,13 +438,17 @@ namespace Repeater_Programming_Utility
             string originalValue = txtDtmfTones.Text;
 
             chkIdBefore.Checked = true;
-            chkIdBefore.Checked = false;
+            chkIdAfter.Checked = false;
             txtDtmfTones.Text = txtLogonCode.Text;
+            Application.DoEvents();
+
             btnSend_Click(sender, e);
+            Application.DoEvents();
 
             txtDtmfTones.Text = originalValue;
             chkIdBefore.Checked = chkBefore;
             chkIdAfter.Checked = chkAfter;
+            Application.DoEvents();
         }
 
         private void btnLogoff_Click(object sender, EventArgs e)
@@ -454,13 +458,17 @@ namespace Repeater_Programming_Utility
             string originalValue = txtDtmfTones.Text;
 
             chkIdBefore.Checked = false;
-            chkIdBefore.Checked = true;
+            chkIdAfter.Checked = true;
             txtDtmfTones.Text = txtLogoffCode.Text;
+            Application.DoEvents();
+
             btnSend_Click(sender, e);
+            Application.DoEvents();
 
             txtDtmfTones.Text = originalValue;
             chkIdBefore.Checked = chkBefore;
             chkIdAfter.Checked = chkAfter;
+            Application.DoEvents();
         }
 
         private void linkLabelCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
