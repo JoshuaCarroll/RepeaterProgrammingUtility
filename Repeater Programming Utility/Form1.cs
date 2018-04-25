@@ -16,7 +16,8 @@ namespace Repeater_Programming_Utility
         // Change these to application level settings
         private Color transmittingColor = Color.Aquamarine;
         private int PauseBeforeAfterKeyup = 500;
-        private int ExtraPauseForVox = 1000;
+        private int ExtraPauseForVox = 2000;
+		private bool isCancelling = false;
 
         public Form1()
         {
@@ -159,122 +160,264 @@ namespace Repeater_Programming_Utility
             }
         }
         private void btnSend_Click(object sender, EventArgs e)
-        {
-            string CommentCharacter = txtCommentCharacter.Text;
+		{
+			isCancelling = false;
+			transmitTones();
+		}
+		private void transmitTonesOld()
+		{
+			string CommentCharacter = txtCommentCharacter.Text;
 
-            if (cbComPort.Text == string.Empty)
-            {
-                MessageBox.Show("Please select a COM port first.");
-            }
-            else
-            {
-                string strDtmf = txtDtmfTones.Text;
+			if (cbComPort.Text == string.Empty)
+			{
+				MessageBox.Show("Please select a COM port first.");
+			}
+			else
+			{
+				string strDtmf = txtDtmfTones.Text;
 
-                for (int i = 0; i < strDtmf.Length; i++)
-                {
-                    if (strDtmf.Contains(CommentCharacter))
-                    {
-                        int posComment = strDtmf.IndexOf(CommentCharacter);
-                        int posEndLine = strDtmf.IndexOf("\r\n", posComment);
-                        if (posComment > -1)
-                        {
-                            if (posEndLine > -1)
-                            {
-                                strDtmf = strDtmf.Remove(posComment, posEndLine - posComment);
-                            }
-                            else
-                            {
-                                strDtmf = strDtmf.Remove(posComment);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
+				for (int i = 0; i < strDtmf.Length; i++)
+				{
+					if (strDtmf.Contains(CommentCharacter))
+					{
+						int posComment = strDtmf.IndexOf(CommentCharacter);
+						int posEndLine = strDtmf.IndexOf("\r\n", posComment);
+						if (posComment > -1)
+						{
+							if (posEndLine > -1)
+							{
+								strDtmf = strDtmf.Remove(posComment, posEndLine - posComment);
+							}
+							else
+							{
+								strDtmf = strDtmf.Remove(posComment);
+							}
+						}
+					}
+					else
+					{
+						break;
+					}
+				}
 
-                strDtmf = strDtmf.Replace(" ", "").Replace("\t","");
-                string[] separator = { "\r\n" };
-                string[] lines = strDtmf.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+				strDtmf = strDtmf.Replace(" ", "").Replace("\t", "");
+				string[] separator = { "\r\n" };
+				string[] lines = strDtmf.Split(separator, StringSplitOptions.RemoveEmptyEntries);
 
-                int PauseBetweenTones = int.Parse(txtPauseBetweenDigits.Text);
-                int LengthOfEachTone = int.Parse(txtLengthOfEachTone.Text);
-                int PauseBetweenLines = int.Parse(txtPauseBetweenLines.Text);
-                int sampleRate = 8000;
-                int bitRate = 16;
-                BasicTelephony b = new BasicTelephony();
+				int PauseBetweenTones = int.Parse(txtPauseBetweenDigits.Text);
+				int LengthOfEachTone = int.Parse(txtLengthOfEachTone.Text);
+				int PauseBetweenLines = int.Parse(txtPauseBetweenLines.Text);
+				int sampleRate = 8000;
+				int bitRate = 16;
+				BasicTelephony b = new BasicTelephony();
 
-                string CallSign = toLetters(txtCallsign.Text);
+				string CallSign = toLetters(txtCallsign.Text);
 
-                if (chkIdBefore.Checked)
-                {
-                    using (SpeechSynthesizer synth = new SpeechSynthesizer())
-                    {
-                        controlPtt(port, PttState.Open);
-                        Pause(PauseBeforeAfterKeyup);
-                        synth.Speak("This is " + CallSign + " on tones, sending " + lines.Length.ToString() + " lines.");
-                        Pause(PauseBeforeAfterKeyup);
-                        controlPtt(port, PttState.Closed);
-                        Pause(PauseBetweenLines);
-                    }
-                }
+				if (chkIdBefore.Checked)
+				{
+					using (SpeechSynthesizer synth = new SpeechSynthesizer())
+					{
+						controlPtt(port, PttState.Open);
+						Pause(PauseBeforeAfterKeyup);
+						string statement = "This is " + CallSign + " on tones, sending " + lines.Length.ToString() + " line";
+						if (lines.Length > 1) statement += "s";
+						synth.Speak(statement);
+						Pause(PauseBeforeAfterKeyup);
+						controlPtt(port, PttState.Closed);
+						Pause(PauseBetweenLines);
+					}
+				}
 
-                for (int i = 0; i < lines.Length; i++)
-                {
-                    // Move the cursor to show progress
-                    int selectStart = txtDtmfTones.GetFirstCharIndexFromLine(i);
-                    int selectEnd = txtDtmfTones.Text.IndexOf(Environment.NewLine, selectStart);
-                    txtDtmfTones.Select(selectStart, selectEnd);
+				for (int i = 0; i < lines.Length; i++)
+				{
+					// Move the cursor to show progress
+					int selectStart = txtDtmfTones.GetFirstCharIndexFromLine(i);
+					int selectEnd = txtDtmfTones.Text.IndexOf(Environment.NewLine, selectStart);
+					txtDtmfTones.Select(selectStart, selectEnd);
 
-                    string tones = lines[i];
-                    if (tones != string.Empty)
-                    {
-                        System.IO.MemoryStream dtmfStream = b.GenerateDTMF(tones, PauseBetweenTones, LengthOfEachTone, sampleRate, bitRate);
-                        byte[] dtmfWav = b.WriteWAVFile(sampleRate, bitRate, 1, dtmfStream);
+					string tones = lines[i];
+					if (tones != string.Empty)
+					{
+						int lineNumber = i + 1;
 
-                        System.IO.MemoryStream wavStream = new System.IO.MemoryStream();
-                        wavStream.Write(dtmfWav, 0, dtmfWav.Length);
+						System.IO.MemoryStream dtmfStream = b.GenerateDTMF(tones, PauseBetweenTones, LengthOfEachTone, sampleRate, bitRate);
+						byte[] dtmfWav = b.WriteWAVFile(sampleRate, bitRate, 1, dtmfStream);
 
-                        List<byte> soundBytes = new List<byte>(dtmfWav);
+						System.IO.MemoryStream wavStream = new System.IO.MemoryStream();
+						wavStream.Write(dtmfWav, 0, dtmfWav.Length);
 
-                        //create media player loading the first half of the sound file
-                        MediaPlayer mPlayer = new MediaPlayer(soundBytes.ToArray());
+						List<byte> soundBytes = new List<byte>(dtmfWav);
 
-                        controlPtt(port, PttState.Open);
-                        Pause(PauseBeforeAfterKeyup);
+						//create media player loading the first half of the sound file
+						MediaPlayer mPlayer = new MediaPlayer(soundBytes.ToArray());
 
-                        // play line number
-                        SpeechSynthesizer synth3 = new SpeechSynthesizer();
-                        synth3.Speak("Line " + i);
-                        synth3.Dispose();
+						controlPtt(port, PttState.Open);
+						Pause(PauseBeforeAfterKeyup);
 
-                        //begin playing the file
-                        mPlayer.Play();
-                        Pause(((LengthOfEachTone + PauseBetweenTones) * tones.Length) + PauseBeforeAfterKeyup);
+						if (lineNumber % 2 == 0)
+						{
+							// play line number
+							SpeechSynthesizer synth3 = new SpeechSynthesizer();
+							synth3.Speak("Line " + lineNumber);
+							synth3.Dispose();
+						}
 
-                        controlPtt(port, PttState.Closed);
+						//begin playing the file
+						mPlayer.Play();
+						Pause(((LengthOfEachTone + PauseBetweenTones) * tones.Length) + PauseBeforeAfterKeyup);
 
-                        Pause(PauseBetweenLines);
-                    }
-                }
+						controlPtt(port, PttState.Closed);
 
-                if (chkIdAfter.Checked)
-                {
-                    using (SpeechSynthesizer synth2 = new SpeechSynthesizer())
-                    {
-                        controlPtt(port, PttState.Open);
-                        Pause(PauseBeforeAfterKeyup);
-                        synth2.Speak("Via the N 5 J L C repeater programming utility, " + CallSign + " clear.");
-                        Pause(PauseBeforeAfterKeyup);
-                        controlPtt(port, PttState.Closed);
-                    }
-                }
+						Pause(PauseBetweenLines);
+					}
+				}
 
-                txtDtmfTones.Select(txtDtmfTones.Text.Length, txtDtmfTones.Text.Length);
-            }
-        }
-        public void Pause(int Milliseconds)
+				if (chkIdAfter.Checked)
+				{
+					using (SpeechSynthesizer synth2 = new SpeechSynthesizer())
+					{
+						controlPtt(port, PttState.Open);
+						Pause(PauseBeforeAfterKeyup);
+						synth2.Speak("Via the N 5 J L C repeater programming utility, " + CallSign + " clear.");
+						Pause(PauseBeforeAfterKeyup);
+						controlPtt(port, PttState.Closed);
+					}
+				}
+
+				txtDtmfTones.Select(txtDtmfTones.Text.Length, txtDtmfTones.Text.Length);
+			}
+		}
+		private int numberOfLines(string s)
+		{
+			string[] separator = { "\r\n" };
+			string[] lines = s.Split(separator, StringSplitOptions.None);
+			return lines.Length;
+		}
+		private void transmitTones()
+		{
+			//txtDtmfTones.ReadOnly = true;
+			string CommentCharacter = txtCommentCharacter.Text;
+
+			if (cbComPort.Text == string.Empty)
+			{
+				MessageBox.Show("Please select a COM port first.");
+				return;
+			}
+
+			int PauseBetweenTones = int.Parse(txtPauseBetweenDigits.Text);
+			int LengthOfEachTone = int.Parse(txtLengthOfEachTone.Text);
+			int PauseBetweenLines = int.Parse(txtPauseBetweenLines.Text);
+			int sampleRate = 8000;
+			int bitRate = 16;
+			BasicTelephony b = new BasicTelephony();
+
+			string CallSign = toLetters(txtCallsign.Text);
+			int totalNumberOfLines = numberOfLines(txtDtmfTones.Text);
+
+			if (chkIdBefore.Checked)
+			{
+				using (SpeechSynthesizer synth = new SpeechSynthesizer())
+				{
+					controlPtt(port, PttState.Open);
+					Pause(PauseBeforeAfterKeyup);
+					string statement = "This is " + CallSign + " on tones, sending " + totalNumberOfLines + " line";
+					if (totalNumberOfLines > 1) { statement += "s"; }
+					synth.Speak(statement);
+					Pause(PauseBeforeAfterKeyup);
+					controlPtt(port, PttState.Closed);
+					Pause(PauseBetweenLines);
+				}
+			}
+
+			#region Loop through each line in txtDtmfTones
+			int cursorPosition = 0;
+			while (txtDtmfTones.Text.Length > cursorPosition)
+			{
+				if (isCancelling)
+				{
+					break;
+				}
+
+				string tones = "";
+				int eolPosition = 0;
+				int lineNumber = 0;
+
+				eolPosition = txtDtmfTones.Text.IndexOf("\r\n", cursorPosition);
+				lineNumber = numberOfLines(txtDtmfTones.Text.Substring(0, cursorPosition));
+				if (eolPosition > -1)
+				{
+					tones = txtDtmfTones.Text.Substring(cursorPosition, eolPosition - cursorPosition);
+				}
+				else
+				{
+					eolPosition = txtDtmfTones.Text.Length;
+					tones = txtDtmfTones.Text.Substring(cursorPosition);
+				}
+
+				// Ignore tabs and spaces, stop at comment character, ignore blank lines
+				tones = tones.Replace("\t", "").Replace(" ", "");
+				int commentPosition = tones.IndexOf(";");
+				if (commentPosition > -1)
+				{
+					tones = tones.Substring(0, commentPosition);
+				}
+				tones = tones.Trim();
+
+				if (tones != string.Empty)
+				{
+					// Highlight the line being sent
+					txtDtmfTones.Select(cursorPosition, eolPosition - cursorPosition);
+
+					// Generate the tones on this line
+					System.IO.MemoryStream dtmfStream = b.GenerateDTMF(tones, PauseBetweenTones, LengthOfEachTone, sampleRate, bitRate);
+					byte[] dtmfWav = b.WriteWAVFile(sampleRate, bitRate, 1, dtmfStream);
+					System.IO.MemoryStream wavStream = new System.IO.MemoryStream();
+					wavStream.Write(dtmfWav, 0, dtmfWav.Length);
+					List<byte> soundBytes = new List<byte>(dtmfWav);
+					MediaPlayer mPlayer = new MediaPlayer(soundBytes.ToArray());
+
+					controlPtt(port, PttState.Open);
+					Pause(PauseBeforeAfterKeyup);
+
+					// Announce every other line number
+					if (lineNumber % 2 == 0)
+					{
+						using (SpeechSynthesizer synth = new SpeechSynthesizer())
+						{
+							synth.Speak("Line " + lineNumber);
+							synth.Dispose();
+						}
+					}
+
+					//begin playing the file
+					mPlayer.Play();
+					Pause((LengthOfEachTone * tones.Length) + (PauseBetweenTones * (tones.Length - 1)) + PauseBeforeAfterKeyup);
+
+					controlPtt(port, PttState.Closed);
+					Pause(PauseBetweenLines);
+				}
+
+				// Get ready for the next loop
+				cursorPosition = eolPosition + 2; // Add two to account for carriage return and line feed
+			}
+			#endregion
+
+			if (chkIdAfter.Checked)
+			{
+				using (SpeechSynthesizer synth = new SpeechSynthesizer())
+				{
+					controlPtt(port, PttState.Open);
+					Pause(PauseBeforeAfterKeyup);
+					synth.Speak("Via the N 5 J L C repeater programming utility, " + CallSign + " clear.");
+					Pause(PauseBeforeAfterKeyup);
+					controlPtt(port, PttState.Closed);
+				}
+			}
+
+			txtDtmfTones.ReadOnly = false;
+		}
+
+		public void Pause(int Milliseconds)
         {
             DateTime continueTime = DateTime.Now.Add(new TimeSpan(0, 0, 0, 0, Milliseconds));
             while (continueTime > DateTime.Now)
@@ -473,7 +616,7 @@ namespace Repeater_Programming_Utility
 
         private void linkLabelCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+			isCancelling = true;
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -548,5 +691,25 @@ namespace Repeater_Programming_Utility
             
             Properties.Settings.Default.Save();
         }
-    }
+
+		private void notImplemented()
+		{
+			MessageBox.Show("This feature has not yet been implemented.  Know C#?  Head to Github and help with the project.", "Not implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		private void openToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			notImplemented();
+		}
+
+		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			notImplemented();
+		}
+
+		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			notImplemented();
+		}
+	}
 }
