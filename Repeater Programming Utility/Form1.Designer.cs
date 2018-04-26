@@ -77,6 +77,8 @@
 			this.linkLabelCancel = new System.Windows.Forms.LinkLabel();
 			this.groupBoxTone = new System.Windows.Forms.GroupBox();
 			this.txtLengthOfEachTone = new System.Windows.Forms.MaskedTextBox();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			this.statusStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.groupBoxUser.SuspendLayout();
@@ -556,6 +558,17 @@
 			this.txtLengthOfEachTone.TabIndex = 20;
 			this.txtLengthOfEachTone.Text = "40";
 			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.FileName = "openFileDialog1";
+			this.openFileDialog1.Filter = "Text files|*.txt|All files|*.*";
+			this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+			// 
+			// saveFileDialog1
+			// 
+			this.saveFileDialog1.Filter = "Text files|*.txt|All files|*.*";
+			this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -645,6 +658,8 @@
         private System.Windows.Forms.ToolStripMenuItem provideASuggestionToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.MaskedTextBox txtLengthOfEachTone;
-    }
+		private System.Windows.Forms.OpenFileDialog openFileDialog1;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+	}
 }
 
