@@ -83,7 +83,6 @@ namespace Repeater_Programming_Utility
             this.WindowState = Properties.Settings.Default.windowState;
 
         }
-
         private void NumericTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((Char.IsDigit(e.KeyChar)) || (Char.IsControl(e.KeyChar)))
@@ -512,7 +511,8 @@ namespace Repeater_Programming_Utility
 
         private void reportAProblemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new?body=-%20What%20were%20you%20trying%20to%20do%3F%20%0D%0A%0D%0A%0D%0A-%20What%20happened%20instead%3F%0D%0A%0D%0A%0D%0A_____%0D%0AOS%3A%20Windows%0D%0ASoftware%20version%3A%200.0&labels=bug");
+			string version = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
+			System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new?body=-%20What%20were%20you%20trying%20to%20do%3F%20%0D%0A%0D%0A%0D%0A-%20What%20happened%20instead%3F%0D%0A%0D%0A%0D%0A_____%0D%0AOS%3A%20Windows%0D%0ASoftware%20version%3A%20" + version + "&labels=bug");
         }
 
         private void provideASuggestionToolStripMenuItem_Click(object sender, EventArgs e)
