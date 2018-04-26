@@ -18,14 +18,14 @@
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Background</UpdateMode>
+    <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://www.n5jlc.com/radio_tools/repeater_programming_utility/</InstallUrl>
-    <UpdateUrl>http://www.decodethecode.com/radio_tools/repeater_programming_utility/</UpdateUrl>
+    <UpdateUrl>http://www.n5jlc.com/radio_tools/repeater_programming_utility/</UpdateUrl>
     <SupportUrl>https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/wiki</SupportUrl>
     <ErrorReportUrl>https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new%3fbody=-%2520What%2520were%2520you%2520trying%2520to%2520do%253F%2520%250D%250A%250D%250A%250D%250A-%2520What%2520happened%2520instead%253F%250D%250A%250D%250A%250D%250A_____%250D%250AOS%253A%2520Windows%250D%250ASoftware%2520version%253A%25200.0&amp;labels=bug</ErrorReportUrl>
     <TargetCulture>en</TargetCulture>
@@ -33,7 +33,7 @@
     <PublisherName>Joshua Carroll, N5JLC</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
