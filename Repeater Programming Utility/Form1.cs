@@ -711,18 +711,19 @@ namespace Repeater_Programming_Utility
 		private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			string text = System.IO.File.ReadAllText(openFileDialog1.FileName);
+			saveFileDialog1.FileName = openFileDialog1.FileName;
 			txtDtmfTones.Text = text;
 		}
 
 		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			if ((openFileDialog1.FileName != "") && (openFileDialog1.FileName != "openFileDialog1"))
+			if ((saveFileDialog1.FileName != "") && (saveFileDialog1.FileName != "saveFileDialog1"))
 			{
 				System.IO.File.WriteAllText(openFileDialog1.FileName, txtDtmfTones.Text);
 			}
 			else
 			{
-				saveAsToolStripMenuItem_Click(sender, e);
+				saveFileDialog1.ShowDialog();
 			}
 		}
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
