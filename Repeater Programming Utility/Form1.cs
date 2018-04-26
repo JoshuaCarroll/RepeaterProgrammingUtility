@@ -699,11 +699,6 @@ namespace Repeater_Programming_Utility
             Properties.Settings.Default.Save();
         }
 
-		private void notImplemented()
-		{
-			MessageBox.Show("This feature has not yet been implemented.  Know C#?  Head to Github and help with the project.", "Not implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
-		}
-
 		private void openToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			openFileDialog1.ShowDialog();
