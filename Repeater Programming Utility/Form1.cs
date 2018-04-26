@@ -553,7 +553,6 @@ namespace Repeater_Programming_Utility
 
             groupBoxDtmf.Location = new Point(14, posY);
             groupBoxDtmf.Height = this.Height - groupBoxDtmf.Top - 99;
-            /// TODO: Do some kind of fancy math thing instead of a hard coded, pedestrian value like, heh, "99"
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
