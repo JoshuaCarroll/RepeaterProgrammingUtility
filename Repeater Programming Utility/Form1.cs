@@ -301,7 +301,6 @@ namespace Repeater_Programming_Utility
 		}
 		private void transmitTones()
 		{
-			//txtDtmfTones.ReadOnly = true;
 			string CommentCharacter = txtCommentCharacter.Text;
 
 			if (cbComPort.Text == string.Empty)
@@ -334,6 +333,8 @@ namespace Repeater_Programming_Utility
 					Pause(PauseBetweenLines);
 				}
 			}
+
+			txtDtmfTones.Focus();
 
 			#region Loop through each line in txtDtmfTones
 			int cursorPosition = 0;
@@ -408,6 +409,8 @@ namespace Repeater_Programming_Utility
 			}
 			#endregion
 
+			txtDtmfTones.Select(0, 0);
+
 			if (chkIdAfter.Checked)
 			{
 				using (SpeechSynthesizer synth = new SpeechSynthesizer())
@@ -419,8 +422,6 @@ namespace Repeater_Programming_Utility
 					controlPtt(port, PttState.Closed);
 				}
 			}
-
-			txtDtmfTones.ReadOnly = false;
 		}
 
 		public void Pause(int Milliseconds)
