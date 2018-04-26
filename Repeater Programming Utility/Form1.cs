@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.Speech.Synthesis;
 using System.Threading;
+using System.Deployment.Application;
 
 namespace Repeater_Programming_Utility
 {
@@ -25,8 +26,13 @@ namespace Repeater_Programming_Utility
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Get and list the serial ports on this system
-            List<string> s = new List<string>(SerialPort.GetPortNames());
+			if (ApplicationDeployment.IsNetworkDeployed)
+			{
+				this.Text += " v" + ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
+			}
+
+			// Get and list the serial ports on this system
+			List<string> s = new List<string>(SerialPort.GetPortNames());
             s.Add("VOX");
             s.Sort();
             foreach (string item in s)
@@ -699,17 +705,32 @@ namespace Repeater_Programming_Utility
 
 		private void openToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			notImplemented();
+			openFileDialog1.ShowDialog();
+		}
+		private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			string text = System.IO.File.ReadAllText(openFileDialog1.FileName);
+			txtDtmfTones.Text = text;
 		}
 
 		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			notImplemented();
+			if ((openFileDialog1.FileName != "") && (openFileDialog1.FileName != "openFileDialog1"))
+			{
+				System.IO.File.WriteAllText(openFileDialog1.FileName, txtDtmfTones.Text);
+			}
+			else
+			{
+				saveAsToolStripMenuItem_Click(sender, e);
+			}
 		}
-
 		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			notImplemented();
+			saveFileDialog1.ShowDialog();
+		}
+		private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			System.IO.File.WriteAllText(saveFileDialog1.FileName, txtDtmfTones.Text);
 		}
 	}
 }
