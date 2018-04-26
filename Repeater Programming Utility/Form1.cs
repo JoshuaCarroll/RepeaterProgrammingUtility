@@ -706,6 +706,7 @@ namespace Repeater_Programming_Utility
 		private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
 		{
 			string text = System.IO.File.ReadAllText(openFileDialog1.FileName);
+			Properties.Settings.Default.fileOpenSaveLocation = openFileDialog1.FileName;
 			saveFileDialog1.FileName = openFileDialog1.FileName;
 			txtDtmfTones.Text = text;
 		}
@@ -727,6 +728,7 @@ namespace Repeater_Programming_Utility
 		}
 		private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
 		{
+			Properties.Settings.Default.fileOpenSaveLocation = saveFileDialog1.FileName;
 			System.IO.File.WriteAllText(saveFileDialog1.FileName, txtDtmfTones.Text);
 		}
 	}
