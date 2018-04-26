@@ -79,6 +79,8 @@
 			this.txtLengthOfEachTone = new System.Windows.Forms.MaskedTextBox();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+			this.label12 = new System.Windows.Forms.Label();
+			this.txtPrefaceCode = new System.Windows.Forms.TextBox();
 			this.statusStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.groupBoxUser.SuspendLayout();
@@ -471,6 +473,8 @@
 			// 
 			// groupBoxSecurity
 			// 
+			this.groupBoxSecurity.Controls.Add(this.label12);
+			this.groupBoxSecurity.Controls.Add(this.txtPrefaceCode);
 			this.groupBoxSecurity.Controls.Add(this.label11);
 			this.groupBoxSecurity.Controls.Add(this.label5);
 			this.groupBoxSecurity.Controls.Add(this.txtLogoffCode);
@@ -569,6 +573,23 @@
 			this.saveFileDialog1.Filter = "Text files|*.txt|All files|*.*";
 			this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
 			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Location = new System.Drawing.Point(681, 23);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(74, 13);
+			this.label12.TabIndex = 31;
+			this.label12.Text = "Preface code:";
+			this.label12.TextAlign = System.Drawing.ContentAlignment.TopRight;
+			// 
+			// txtPrefaceCode
+			// 
+			this.txtPrefaceCode.Location = new System.Drawing.Point(757, 20);
+			this.txtPrefaceCode.Name = "txtPrefaceCode";
+			this.txtPrefaceCode.Size = new System.Drawing.Size(100, 20);
+			this.txtPrefaceCode.TabIndex = 30;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -660,6 +681,8 @@
         private System.Windows.Forms.MaskedTextBox txtLengthOfEachTone;
 		private System.Windows.Forms.OpenFileDialog openFileDialog1;
 		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.TextBox txtPrefaceCode;
 	}
 }
 

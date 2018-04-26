@@ -252,6 +252,8 @@ namespace Repeater_Programming_Utility
 					// Highlight the line being sent
 					txtDtmfTones.Select(cursorPosition, eolPosition - cursorPosition);
 
+					tones = txtPrefaceCode.Text + tones;
+
 					// Generate the tones on this line
 					System.IO.MemoryStream dtmfStream = b.GenerateDTMF(tones, PauseBetweenTones, LengthOfEachTone, sampleRate, bitRate);
 					byte[] dtmfWav = b.WriteWAVFile(sampleRate, bitRate, 1, dtmfStream);
