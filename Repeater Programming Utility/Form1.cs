@@ -197,8 +197,9 @@ namespace Repeater_Programming_Utility
 
 			if (chkIdBefore.Checked)
 			{
-				using (SpeechSynthesizer synth = new SpeechSynthesizer())
+				using (SpeechSynthesizer synth = new SpeechSynthesizer()) 
 				{
+					synth.Volume = 100;
 					controlPtt(port, PttState.Open);
 					Pause(PauseBeforeAfterKeyup);
 					string statement = "This is " + CallSign + " on tones, sending " + totalNumberOfLines + " line";
@@ -269,6 +270,7 @@ namespace Repeater_Programming_Utility
 					{
 						using (SpeechSynthesizer synth = new SpeechSynthesizer())
 						{
+							synth.Volume = 100;
 							synth.Speak("Line " + lineNumber);
 							synth.Dispose();
 						}
@@ -293,6 +295,7 @@ namespace Repeater_Programming_Utility
 			{
 				using (SpeechSynthesizer synth = new SpeechSynthesizer())
 				{
+					synth.Volume = 100;
 					controlPtt(port, PttState.Open);
 					Pause(PauseBeforeAfterKeyup);
 					synth.Speak("Via the N 5 J L C repeater programming utility, " + CallSign + " clear.");
