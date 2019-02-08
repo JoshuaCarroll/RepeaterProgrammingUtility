@@ -81,6 +81,8 @@
 			this.txtLengthOfEachTone = new System.Windows.Forms.MaskedTextBox();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.sSHMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.groupBoxUser.SuspendLayout();
@@ -276,7 +278,9 @@
 			this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userToolStripMenuItem,
             this.toneToolStripMenuItem,
-            this.securityToolStripMenuItem});
+            this.securityToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.sSHMenuToolStripMenuItem});
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
 			this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.viewToolStripMenuItem.Text = "View";
@@ -287,7 +291,7 @@
 			this.userToolStripMenuItem.CheckOnClick = true;
 			this.userToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.userToolStripMenuItem.Name = "userToolStripMenuItem";
-			this.userToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+			this.userToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.userToolStripMenuItem.Tag = "groupBoxUser";
 			this.userToolStripMenuItem.Text = "User";
 			this.userToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
@@ -298,7 +302,7 @@
 			this.toneToolStripMenuItem.CheckOnClick = true;
 			this.toneToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.toneToolStripMenuItem.Name = "toneToolStripMenuItem";
-			this.toneToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+			this.toneToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.toneToolStripMenuItem.Tag = "groupBoxTone";
 			this.toneToolStripMenuItem.Text = "Tone";
 			this.toneToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
@@ -309,7 +313,7 @@
 			this.securityToolStripMenuItem.CheckOnClick = true;
 			this.securityToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.securityToolStripMenuItem.Name = "securityToolStripMenuItem";
-			this.securityToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+			this.securityToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.securityToolStripMenuItem.Tag = "groupBoxSecurity";
 			this.securityToolStripMenuItem.Text = "Security";
 			this.securityToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
@@ -591,6 +595,18 @@
 			this.saveFileDialog1.Filter = "Text files|*.txt|All files|*.*";
 			this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
 			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+			// 
+			// sSHMenuToolStripMenuItem
+			// 
+			this.sSHMenuToolStripMenuItem.Name = "sSHMenuToolStripMenuItem";
+			this.sSHMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.sSHMenuToolStripMenuItem.Text = "SSH menu";
+			this.sSHMenuToolStripMenuItem.Click += new System.EventHandler(this.sSHMenuToolStripMenuItem_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -684,6 +700,8 @@
 		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.TextBox txtPrefaceCode;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripMenuItem sSHMenuToolStripMenuItem;
 	}
 }
 

@@ -612,5 +612,13 @@ namespace Repeater_Programming_Utility
 			Properties.Settings.Default.fileOpenSaveLocation = saveFileDialog1.FileName;
 			System.IO.File.WriteAllText(saveFileDialog1.FileName, txtDtmfTones.Text);
 		}
+
+		private void sSHMenuToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			var form2 = new FormSSH();
+			form2.Closed += (s, args) => this.Close();
+			form2.Show();
+		}
 	}
 }
