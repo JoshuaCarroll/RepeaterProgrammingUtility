@@ -253,13 +253,13 @@ namespace Repeater_Programming_Utility.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
-        public string sshDelay {
+        [global::System.Configuration.DefaultSettingValueAttribute("pi@garage:~$")]
+        public string sshWaitForPrompt {
             get {
-                return ((string)(this["sshDelay"]));
+                return ((string)(this["sshWaitForPrompt"]));
             }
             set {
-                this["sshDelay"] = value;
+                this["sshWaitForPrompt"] = value;
             }
         }
     }

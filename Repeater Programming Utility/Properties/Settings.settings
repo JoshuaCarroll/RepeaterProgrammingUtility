@@ -59,8 +59,8 @@
     <Setting Name="sshPassword" Type="System.String" Scope="User">
       <Value Profile="(Default)">raspberry</Value>
     </Setting>
-    <Setting Name="sshDelay" Type="System.String" Scope="User">
-      <Value Profile="(Default)">1000</Value>
+    <Setting Name="sshWaitForPrompt" Type="System.String" Scope="User">
+      <Value Profile="(Default)">pi@garage:~$</Value>
     </Setting>
   </Settings>
 </SettingsFile>
