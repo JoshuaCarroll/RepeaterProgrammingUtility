@@ -214,5 +214,53 @@ namespace Repeater_Programming_Utility.Properties {
                 this["idAfterTones"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10.0.0.100")]
+        public string sshServer {
+            get {
+                return ((string)(this["sshServer"]));
+            }
+            set {
+                this["sshServer"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("pi")]
+        public string sshUsername {
+            get {
+                return ((string)(this["sshUsername"]));
+            }
+            set {
+                this["sshUsername"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("raspberry")]
+        public string sshPassword {
+            get {
+                return ((string)(this["sshPassword"]));
+            }
+            set {
+                this["sshPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
+        public string sshDelay {
+            get {
+                return ((string)(this["sshDelay"]));
+            }
+            set {
+                this["sshDelay"] = value;
+            }
+        }
     }
 }

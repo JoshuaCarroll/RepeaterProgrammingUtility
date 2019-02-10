@@ -50,5 +50,17 @@
     <Setting Name="idAfterTones" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="sshServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.0.0.100</Value>
+    </Setting>
+    <Setting Name="sshUsername" Type="System.String" Scope="User">
+      <Value Profile="(Default)">pi</Value>
+    </Setting>
+    <Setting Name="sshPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">raspberry</Value>
+    </Setting>
+    <Setting Name="sshDelay" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
