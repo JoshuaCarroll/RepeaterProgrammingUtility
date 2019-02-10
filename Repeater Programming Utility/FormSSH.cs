@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Application;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -43,6 +44,10 @@ namespace Repeater_Programming_Utility
 
 		private void btnConnect_Click(object sender, EventArgs e)
 		{
+			Properties.Settings.Default.sshServer = txtServer.Text;
+			Properties.Settings.Default.sshUsername = txtUsername.Text;
+			Properties.Settings.Default.sshPassword = txtPassword.Text;
+
 			if ((sshClient != null) && (sshClient.IsConnected))
 			{
 				txtOutput.AppendText("\r\n\r\nDisconnecting...\r\n\r\n");
@@ -73,6 +78,8 @@ namespace Repeater_Programming_Utility
 
 		private void btnStartStop_Click(object sender, EventArgs e)
 		{
+			Properties.Settings.Default.sshWaitForPrompt = txtWaitForPrompt.Text;
+
 			if (!timer1.Enabled) {
 				btnStartStop.Text = "Stop";
 				inputLineNumber = 0;
@@ -197,6 +204,60 @@ namespace Repeater_Programming_Utility
 				txtCommand.Text = "";
 				e.Handled = true;
 			}
+		}
+
+		private void reportAProToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			string version = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
+			System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new?body=-%20What%20were%20you%20trying%20to%20do%3F%20%0D%0A%0D%0A%0D%0A-%20What%20happened%20instead%3F%0D%0A%0D%0A%0D%0A_____%0D%0AOS%3A%20Windows%0D%0ASoftware%20version%3A%20" + version + "&labels=bug");
+		}
+
+		private void provideASuggestionToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new?labels=enhancement");
+		}
+
+		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start("https://github.com/JoshuaCarroll/RepeaterProgrammingUtility#user-content-n5jlc-repeater-programming-utility");
+		}
+
+		private void openToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			openFileDialog1.ShowDialog();
+		}
+		private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			string text = System.IO.File.ReadAllText(openFileDialog1.FileName);
+			Properties.Settings.Default.fileOpenSaveLocation = openFileDialog1.FileName;
+			saveFileDialog1.FileName = openFileDialog1.FileName;
+			txtScript.Text = text;
+		}
+
+		private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if ((saveFileDialog1.FileName != "") && (saveFileDialog1.FileName != "saveFileDialog1"))
+			{
+				System.IO.File.WriteAllText(openFileDialog1.FileName, txtScript.Text);
+			}
+			else
+			{
+				saveFileDialog1.ShowDialog();
+			}
+		}
+
+		private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			saveFileDialog1.ShowDialog();
+		}
+
+		private void switchToDTMFToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Properties.Settings.Default.defaultForm = "";
+			this.Hide();
+			var form1 = new Form1();
+			form1.Closed += (s, args) => this.Close();
+			form1.Show();
 		}
 	}
 }

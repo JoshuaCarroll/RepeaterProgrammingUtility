@@ -62,5 +62,8 @@
     <Setting Name="sshWaitForPrompt" Type="System.String" Scope="User">
       <Value Profile="(Default)">pi@garage:~$</Value>
     </Setting>
+    <Setting Name="defaultForm" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SSH</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -54,6 +54,8 @@
 			this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.securityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.sSHMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.reportAProblemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.provideASuggestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,8 +83,6 @@
 			this.txtLengthOfEachTone = new System.Windows.Forms.MaskedTextBox();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.sSHMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.statusStrip1.SuspendLayout();
 			this.menuStrip1.SuspendLayout();
 			this.groupBoxUser.SuspendLayout();
@@ -317,6 +317,18 @@
 			this.securityToolStripMenuItem.Tag = "groupBoxSecurity";
 			this.securityToolStripMenuItem.Text = "Security";
 			this.securityToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+			// 
+			// sSHMenuToolStripMenuItem
+			// 
+			this.sSHMenuToolStripMenuItem.Name = "sSHMenuToolStripMenuItem";
+			this.sSHMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.sSHMenuToolStripMenuItem.Text = "SSH mode";
+			this.sSHMenuToolStripMenuItem.Click += new System.EventHandler(this.sSHMenuToolStripMenuItem_Click);
 			// 
 			// toolStripMenuItem1
 			// 
@@ -594,18 +606,6 @@
 			// 
 			this.saveFileDialog1.Filter = "Text files|*.txt|All files|*.*";
 			this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
-			// 
-			// sSHMenuToolStripMenuItem
-			// 
-			this.sSHMenuToolStripMenuItem.Name = "sSHMenuToolStripMenuItem";
-			this.sSHMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.sSHMenuToolStripMenuItem.Text = "SSH menu";
-			this.sSHMenuToolStripMenuItem.Click += new System.EventHandler(this.sSHMenuToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 

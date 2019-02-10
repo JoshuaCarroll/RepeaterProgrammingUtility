@@ -262,5 +262,17 @@ namespace Repeater_Programming_Utility.Properties {
                 this["sshWaitForPrompt"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SSH")]
+        public string defaultForm {
+            get {
+                return ((string)(this["defaultForm"]));
+            }
+            set {
+                this["defaultForm"] = value;
+            }
+        }
     }
 }

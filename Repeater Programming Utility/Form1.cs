@@ -615,6 +615,7 @@ namespace Repeater_Programming_Utility
 
 		private void sSHMenuToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+			Properties.Settings.Default.defaultForm = "SSH";
 			this.Hide();
 			var form2 = new FormSSH();
 			form2.Closed += (s, args) => this.Close();

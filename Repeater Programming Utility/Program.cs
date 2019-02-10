@@ -15,7 +15,14 @@ namespace Repeater_Programming_Utility
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSSH());
+			if (Properties.Settings.Default.defaultForm == "SSH")
+			{
+				Application.Run(new FormSSH());
+			}
+            else
+			{
+				Application.Run(new Form1());
+			}
         }
     }
 }
