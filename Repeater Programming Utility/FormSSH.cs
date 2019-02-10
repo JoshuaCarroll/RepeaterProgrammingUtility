@@ -17,7 +17,7 @@ namespace Repeater_Programming_Utility
 	{
 		private SshClient sshClient;
 		private int inputLineNumber = 0;
-		private string[] arrInput;
+		private bool readyForNextLine = true;
 
 		MemoryStream memoryStream = new MemoryStream(new byte[1000000]);
 		TextWriter outputWriter;
@@ -38,38 +38,47 @@ namespace Repeater_Programming_Utility
 			txtServer.Text = Properties.Settings.Default.sshServer;
 			txtUsername.Text = Properties.Settings.Default.sshUsername;
 			txtPassword.Text = Properties.Settings.Default.sshPassword;
-			txtDelay.Text = Properties.Settings.Default.sshDelay;
+			txtWaitForPrompt.Text = Properties.Settings.Default.sshWaitForPrompt;
 		}
 
 		private void btnConnect_Click(object sender, EventArgs e)
 		{
 			if ((sshClient != null) && (sshClient.IsConnected))
 			{
+				txtOutput.AppendText("\r\n\r\nDisconnecting...\r\n\r\n");
 				sshClient.Disconnect();
+				txtOutput.AppendText("Disconnected.\r\n\r\n");
 				btnConnectDisconnect.Text = "Connect";
 				btnStartStop.Text = "Start";
 				btnStartStop.Enabled = false;
 			}
 			else
 			{
+				txtOutput.AppendText("\r\n\r\nConnecting...\r\n\r\n");
 				sshClient = new SshClient(txtServer.Text, txtUsername.Text, txtPassword.Text);
 				sshClient.Connect();
 				if (!sshClient.IsConnected)
-					throw new Exception("Can't connect to host: " + sshClient.ConnectionInfo.Host);
-
-				SshStream();
+				{
+					txtOutput.AppendText("** Unable to connect to host: " + sshClient.ConnectionInfo.Host);
+				}
+				else
+				{
+					txtOutput.AppendText("Connected.\r\n\r\n");
+					btnConnectDisconnect.Text = "Disconnect";
+					btnStartStop.Enabled = true;
+					SshStream();
+				}
 			}
 		}
 
 		private void btnStartStop_Click(object sender, EventArgs e)
 		{
 			if (!timer1.Enabled) {
-				arrInput = txtScript.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-				timer1.Interval = int.Parse(txtDelay.Text);
 				btnStartStop.Text = "Stop";
-				txtScript.ReadOnly = true;
 				inputLineNumber = 0;
+				txtScript.ReadOnly = readyForNextLine = true;
 				timer1.Enabled = true;
+				txtScript.Focus();
 			}
 			else
 			{
@@ -86,25 +95,28 @@ namespace Repeater_Programming_Utility
 
 		private void timer1_Tick(object sender, EventArgs e)
 		{
-			if (inputLineNumber < arrInput.Length)
+			if (inputLineNumber < txtScript.Lines.Length)
 			{
-				string command = arrInput[inputLineNumber];
-
-				// Clean it up
-				if (command.Contains(";"))
+				if (readyForNextLine)
 				{
-					command = command.Remove(command.IndexOf(';'));
-				}
-				command = command.Trim();
+					string command = txtScript.Lines[inputLineNumber];
+					int selectStart = txtScript.GetFirstCharIndexFromLine(inputLineNumber);
+					int selectEnd = txtScript.Text.IndexOf(Environment.NewLine, txtScript.GetFirstCharIndexFromLine(inputLineNumber));
+					if (selectEnd == -1) { selectEnd = txtScript.Text.Length; }
+					txtScript.Select(selectStart, selectEnd - selectStart);
 
-				if (command != string.Empty)
-				{
-					txtOutput.Text += txtScript.Text + Environment.NewLine;
-					txtOutput.Text += "> " + sshClient.RunCommand(txtScript.Text).Result + Environment.NewLine;
-					txtOutput.Select(txtOutput.Text.Length, 0);
-				}
+					// Clean it up
+					if (command.Contains(";")) { command = command.Remove(command.IndexOf(';')); }
+					command = command.Trim();
 
-				inputLineNumber++;
+					if (command != string.Empty)
+					{
+						readyForNextLine = false;
+						RunCommand(command);
+					}
+
+					inputLineNumber++;
+				}
 			}
 			else
 			{
@@ -142,6 +154,10 @@ namespace Repeater_Programming_Utility
 
 		void ToOutput(string line)
 		{
+			if (line.Trim() == txtWaitForPrompt.Text)
+			{
+				readyForNextLine = true;
+			}
 			outputWriter.WriteLine(line);
 			outputWriter.Flush();
 			Output(line);

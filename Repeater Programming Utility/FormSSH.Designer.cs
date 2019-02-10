@@ -42,7 +42,7 @@
 			this.txtOutput = new System.Windows.Forms.TextBox();
 			this.btnStartStop = new System.Windows.Forms.Button();
 			this.label5 = new System.Windows.Forms.Label();
-			this.txtDelay = new System.Windows.Forms.TextBox();
+			this.txtWaitForPrompt = new System.Windows.Forms.TextBox();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.label6 = new System.Windows.Forms.Label();
 			this.txtCommand = new System.Windows.Forms.TextBox();
@@ -117,12 +117,14 @@
 			this.txtScript.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtScript.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtScript.Location = new System.Drawing.Point(11, 44);
 			this.txtScript.Multiline = true;
 			this.txtScript.Name = "txtScript";
 			this.txtScript.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtScript.Size = new System.Drawing.Size(636, 382);
 			this.txtScript.TabIndex = 7;
+			this.txtScript.Text = "echo hello\r\necho whats up\r\nll\r\nls\r\npwd\r\necho ok\r\necho all done";
 			// 
 			// btnConnectDisconnect
 			// 
@@ -142,7 +144,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtOutput.BackColor = System.Drawing.Color.Black;
 			this.txtOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.txtOutput.Cursor = System.Windows.Forms.Cursors.No;
+			this.txtOutput.Cursor = System.Windows.Forms.Cursors.Default;
+			this.txtOutput.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtOutput.ForeColor = System.Drawing.Color.LightGreen;
 			this.txtOutput.Location = new System.Drawing.Point(12, 11);
 			this.txtOutput.Multiline = true;
@@ -154,7 +157,8 @@
 			// btnStartStop
 			// 
 			this.btnStartStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnStartStop.Location = new System.Drawing.Point(254, 432);
+			this.btnStartStop.Enabled = false;
+			this.btnStartStop.Location = new System.Drawing.Point(206, 432);
 			this.btnStartStop.Name = "btnStartStop";
 			this.btnStartStop.Size = new System.Drawing.Size(75, 23);
 			this.btnStartStop.TabIndex = 10;
@@ -168,21 +172,22 @@
 			this.label5.AutoSize = true;
 			this.label5.Location = new System.Drawing.Point(12, 437);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(105, 13);
+			this.label5.Size = new System.Drawing.Size(82, 13);
 			this.label5.TabIndex = 11;
-			this.label5.Text = "Delay between lines:";
+			this.label5.Text = "Wait for prompt:";
 			// 
-			// txtDelay
+			// txtWaitForPrompt
 			// 
-			this.txtDelay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.txtDelay.Location = new System.Drawing.Point(123, 434);
-			this.txtDelay.Name = "txtDelay";
-			this.txtDelay.Size = new System.Drawing.Size(100, 20);
-			this.txtDelay.TabIndex = 12;
-			this.txtDelay.Text = "250";
+			this.txtWaitForPrompt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.txtWaitForPrompt.Location = new System.Drawing.Point(100, 434);
+			this.txtWaitForPrompt.Name = "txtWaitForPrompt";
+			this.txtWaitForPrompt.Size = new System.Drawing.Size(100, 20);
+			this.txtWaitForPrompt.TabIndex = 12;
+			this.txtWaitForPrompt.Text = "pi@garage:~$";
 			// 
 			// timer1
 			// 
+			this.timer1.Interval = 1000;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
 			// label6
@@ -191,16 +196,16 @@
 			this.label6.AutoSize = true;
 			this.label6.Location = new System.Drawing.Point(661, 437);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(57, 13);
+			this.label6.Size = new System.Drawing.Size(40, 13);
 			this.label6.TabIndex = 13;
-			this.label6.Text = "Command:";
+			this.label6.Text = "CMD:>";
 			// 
 			// txtCommand
 			// 
 			this.txtCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.txtCommand.Location = new System.Drawing.Point(724, 434);
+			this.txtCommand.Location = new System.Drawing.Point(707, 434);
 			this.txtCommand.Name = "txtCommand";
-			this.txtCommand.Size = new System.Drawing.Size(566, 20);
+			this.txtCommand.Size = new System.Drawing.Size(583, 20);
 			this.txtCommand.TabIndex = 14;
 			this.txtCommand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCommand_KeyPress);
 			// 
@@ -223,7 +228,7 @@
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.txtCommand);
 			this.Controls.Add(this.label6);
-			this.Controls.Add(this.txtDelay);
+			this.Controls.Add(this.txtWaitForPrompt);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.btnStartStop);
 			this.Controls.Add(this.btnConnectDisconnect);
@@ -265,7 +270,7 @@
 		private System.Windows.Forms.TextBox txtOutput;
 		private System.Windows.Forms.Button btnStartStop;
 		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.TextBox txtDelay;
+		private System.Windows.Forms.TextBox txtWaitForPrompt;
 		private System.Windows.Forms.Timer timer1;
 		private System.Windows.Forms.Label label6;
 		private System.Windows.Forms.TextBox txtCommand;
