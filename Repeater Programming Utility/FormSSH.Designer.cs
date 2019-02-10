@@ -44,12 +44,17 @@
 			this.label5 = new System.Windows.Forms.Label();
 			this.txtDelay = new System.Windows.Forms.TextBox();
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
+			this.label6 = new System.Windows.Forms.Label();
+			this.txtCommand = new System.Windows.Forms.TextBox();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
 			// 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(12, 16);
+			this.label1.Location = new System.Drawing.Point(650, 18);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(41, 13);
 			this.label1.TabIndex = 0;
@@ -57,8 +62,9 @@
 			// 
 			// label2
 			// 
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(190, 16);
+			this.label2.Location = new System.Drawing.Point(828, 18);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(58, 13);
 			this.label2.TabIndex = 1;
@@ -66,8 +72,9 @@
 			// 
 			// label3
 			// 
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(379, 16);
+			this.label3.Location = new System.Drawing.Point(1017, 18);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(56, 13);
 			this.label3.TabIndex = 2;
@@ -83,21 +90,24 @@
 			// 
 			// txtServer
 			// 
-			this.txtServer.Location = new System.Drawing.Point(59, 13);
+			this.txtServer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtServer.Location = new System.Drawing.Point(697, 15);
 			this.txtServer.Name = "txtServer";
 			this.txtServer.Size = new System.Drawing.Size(100, 20);
 			this.txtServer.TabIndex = 4;
 			// 
 			// txtUsername
 			// 
-			this.txtUsername.Location = new System.Drawing.Point(254, 13);
+			this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtUsername.Location = new System.Drawing.Point(892, 15);
 			this.txtUsername.Name = "txtUsername";
 			this.txtUsername.Size = new System.Drawing.Size(100, 20);
 			this.txtUsername.TabIndex = 5;
 			// 
 			// txtPassword
 			// 
-			this.txtPassword.Location = new System.Drawing.Point(441, 13);
+			this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtPassword.Location = new System.Drawing.Point(1079, 15);
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.Size = new System.Drawing.Size(100, 20);
 			this.txtPassword.TabIndex = 6;
@@ -110,12 +120,14 @@
 			this.txtScript.Location = new System.Drawing.Point(11, 44);
 			this.txtScript.Multiline = true;
 			this.txtScript.Name = "txtScript";
-			this.txtScript.Size = new System.Drawing.Size(349, 310);
+			this.txtScript.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.txtScript.Size = new System.Drawing.Size(636, 382);
 			this.txtScript.TabIndex = 7;
 			// 
 			// btnConnectDisconnect
 			// 
-			this.btnConnectDisconnect.Location = new System.Drawing.Point(563, 11);
+			this.btnConnectDisconnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnConnectDisconnect.Location = new System.Drawing.Point(1210, 13);
 			this.btnConnectDisconnect.Name = "btnConnectDisconnect";
 			this.btnConnectDisconnect.Size = new System.Drawing.Size(75, 23);
 			this.btnConnectDisconnect.TabIndex = 8;
@@ -129,18 +141,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtOutput.BackColor = System.Drawing.Color.Black;
+			this.txtOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.txtOutput.Cursor = System.Windows.Forms.Cursors.No;
 			this.txtOutput.ForeColor = System.Drawing.Color.LightGreen;
-			this.txtOutput.Location = new System.Drawing.Point(366, 44);
+			this.txtOutput.Location = new System.Drawing.Point(12, 11);
 			this.txtOutput.Multiline = true;
 			this.txtOutput.Name = "txtOutput";
 			this.txtOutput.ReadOnly = true;
-			this.txtOutput.Size = new System.Drawing.Size(340, 310);
+			this.txtOutput.Size = new System.Drawing.Size(611, 358);
 			this.txtOutput.TabIndex = 9;
 			// 
 			// btnStartStop
 			// 
 			this.btnStartStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnStartStop.Location = new System.Drawing.Point(285, 360);
+			this.btnStartStop.Location = new System.Drawing.Point(254, 432);
 			this.btnStartStop.Name = "btnStartStop";
 			this.btnStartStop.Size = new System.Drawing.Size(75, 23);
 			this.btnStartStop.TabIndex = 10;
@@ -150,16 +164,18 @@
 			// 
 			// label5
 			// 
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(12, 366);
+			this.label5.Location = new System.Drawing.Point(12, 437);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(34, 13);
+			this.label5.Size = new System.Drawing.Size(105, 13);
 			this.label5.TabIndex = 11;
-			this.label5.Text = "Delay";
+			this.label5.Text = "Delay between lines:";
 			// 
 			// txtDelay
 			// 
-			this.txtDelay.Location = new System.Drawing.Point(59, 363);
+			this.txtDelay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.txtDelay.Location = new System.Drawing.Point(123, 434);
 			this.txtDelay.Name = "txtDelay";
 			this.txtDelay.Size = new System.Drawing.Size(100, 20);
 			this.txtDelay.TabIndex = 12;
@@ -169,15 +185,47 @@
 			// 
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
+			// label6
+			// 
+			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(661, 437);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(57, 13);
+			this.label6.TabIndex = 13;
+			this.label6.Text = "Command:";
+			// 
+			// txtCommand
+			// 
+			this.txtCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtCommand.Location = new System.Drawing.Point(724, 434);
+			this.txtCommand.Name = "txtCommand";
+			this.txtCommand.Size = new System.Drawing.Size(566, 20);
+			this.txtCommand.TabIndex = 14;
+			this.txtCommand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCommand_KeyPress);
+			// 
+			// panel1
+			// 
+			this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.panel1.BackColor = System.Drawing.Color.Black;
+			this.panel1.Controls.Add(this.txtOutput);
+			this.panel1.Location = new System.Drawing.Point(653, 44);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(632, 382);
+			this.panel1.TabIndex = 15;
+			// 
 			// FormSSH
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(718, 393);
+			this.ClientSize = new System.Drawing.Size(1302, 465);
+			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.txtCommand);
+			this.Controls.Add(this.label6);
 			this.Controls.Add(this.txtDelay);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.btnStartStop);
-			this.Controls.Add(this.txtOutput);
 			this.Controls.Add(this.btnConnectDisconnect);
 			this.Controls.Add(this.txtScript);
 			this.Controls.Add(this.txtPassword);
@@ -187,11 +235,17 @@
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
+			this.Cursor = System.Windows.Forms.Cursors.Default;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MinimumSize = new System.Drawing.Size(1318, 503);
 			this.Name = "FormSSH";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Repeater Programming Utility: SSH";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSSH_FormClosing);
 			this.Load += new System.EventHandler(this.FormSSH_Load);
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -213,5 +267,8 @@
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.TextBox txtDelay;
 		private System.Windows.Forms.Timer timer1;
+		private System.Windows.Forms.Label label6;
+		private System.Windows.Forms.TextBox txtCommand;
+		private System.Windows.Forms.Panel panel1;
 	}
 }
