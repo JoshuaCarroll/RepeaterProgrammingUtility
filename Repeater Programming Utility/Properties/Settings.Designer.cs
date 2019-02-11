@@ -217,7 +217,7 @@ namespace Repeater_Programming_Utility.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.0.0.100")]
+        [global::System.Configuration.DefaultSettingValueAttribute("192.168.88.1")]
         public string sshServer {
             get {
                 return ((string)(this["sshServer"]));
@@ -229,7 +229,7 @@ namespace Repeater_Programming_Utility.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("pi")]
+        [global::System.Configuration.DefaultSettingValueAttribute("n5cg")]
         public string sshUsername {
             get {
                 return ((string)(this["sshUsername"]));
@@ -241,7 +241,7 @@ namespace Repeater_Programming_Utility.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("raspberry")]
+        [global::System.Configuration.DefaultSettingValueAttribute("I4KnypZ2ugMhvzwNi6ValALn")]
         public string sshPassword {
             get {
                 return ((string)(this["sshPassword"]));
@@ -253,7 +253,7 @@ namespace Repeater_Programming_Utility.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("pi@garage:~$")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DTMF>")]
         public string sshWaitForPrompt {
             get {
                 return ((string)(this["sshWaitForPrompt"]));

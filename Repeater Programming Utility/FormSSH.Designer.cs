@@ -135,12 +135,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtScript.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtScript.Location = new System.Drawing.Point(11, 74);
+			this.txtScript.MaxLength = 64000;
 			this.txtScript.Multiline = true;
 			this.txtScript.Name = "txtScript";
-			this.txtScript.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.txtScript.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.txtScript.Size = new System.Drawing.Size(636, 374);
 			this.txtScript.TabIndex = 7;
 			this.txtScript.Text = "echo hello\r\necho whats up\r\nll\r\nls\r\npwd\r\necho ok\r\necho all done";
+			this.txtScript.WordWrap = false;
 			// 
 			// btnConnectDisconnect
 			// 
@@ -163,11 +165,11 @@
 			this.txtOutput.Cursor = System.Windows.Forms.Cursors.Default;
 			this.txtOutput.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtOutput.ForeColor = System.Drawing.Color.LightGreen;
-			this.txtOutput.Location = new System.Drawing.Point(12, 41);
+			this.txtOutput.Location = new System.Drawing.Point(11, 11);
 			this.txtOutput.Multiline = true;
 			this.txtOutput.Name = "txtOutput";
 			this.txtOutput.ReadOnly = true;
-			this.txtOutput.Size = new System.Drawing.Size(611, 296);
+			this.txtOutput.Size = new System.Drawing.Size(611, 349);
 			this.txtOutput.TabIndex = 9;
 			// 
 			// btnStartStop
@@ -203,7 +205,7 @@
 			// 
 			// timer1
 			// 
-			this.timer1.Interval = 1000;
+			this.timer1.Interval = 500;
 			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
 			// 
 			// label6
@@ -294,7 +296,7 @@
 			// switchToDTMFToolStripMenuItem
 			// 
 			this.switchToDTMFToolStripMenuItem.Name = "switchToDTMFToolStripMenuItem";
-			this.switchToDTMFToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.switchToDTMFToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
 			this.switchToDTMFToolStripMenuItem.Text = "DTMF mode";
 			this.switchToDTMFToolStripMenuItem.Click += new System.EventHandler(this.switchToDTMFToolStripMenuItem_Click);
 			// 

@@ -107,11 +107,6 @@ namespace Repeater_Programming_Utility
 				if (readyForNextLine)
 				{
 					string command = txtScript.Lines[inputLineNumber];
-					int selectStart = txtScript.GetFirstCharIndexFromLine(inputLineNumber);
-					int selectEnd = txtScript.Text.IndexOf(Environment.NewLine, txtScript.GetFirstCharIndexFromLine(inputLineNumber));
-					if (selectEnd == -1) { selectEnd = txtScript.Text.Length; }
-					txtScript.Select(selectStart, selectEnd - selectStart);
-
 					// Clean it up
 					if (command.Contains(";")) { command = command.Remove(command.IndexOf(';')); }
 					command = command.Trim();
@@ -121,6 +116,11 @@ namespace Repeater_Programming_Utility
 						readyForNextLine = false;
 						RunCommand(command);
 					}
+
+					int selectStart = txtScript.GetFirstCharIndexFromLine(inputLineNumber);
+					int selectEnd = txtScript.Text.IndexOf(Environment.NewLine, txtScript.GetFirstCharIndexFromLine(inputLineNumber));
+					if (selectEnd == -1) { selectEnd = txtScript.Text.Length; }
+					txtScript.Select(selectStart, selectEnd - selectStart);
 
 					inputLineNumber++;
 				}
@@ -161,7 +161,7 @@ namespace Repeater_Programming_Utility
 
 		void ToOutput(string line)
 		{
-			if (line.Trim() == txtWaitForPrompt.Text)
+			if (line.Trim().Contains(txtWaitForPrompt.Text))
 			{
 				readyForNextLine = true;
 			}
