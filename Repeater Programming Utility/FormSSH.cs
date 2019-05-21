@@ -134,6 +134,7 @@ namespace Repeater_Programming_Utility
 					int selectEnd = txtScript.Text.IndexOf(Environment.NewLine, txtScript.GetFirstCharIndexFromLine(inputLineNumber));
 					if (selectEnd == -1) { selectEnd = txtScript.Text.Length; }
 					txtScript.Select(selectStart, selectEnd - selectStart);
+					txtScript.ScrollToCaret();
 				}
 			}
 			else
