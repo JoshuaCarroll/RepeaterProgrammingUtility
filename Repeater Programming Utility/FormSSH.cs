@@ -61,17 +61,22 @@ namespace Repeater_Programming_Utility
 			{
 				txtOutput.AppendText("\r\n\r\nConnecting...\r\n\r\n");
 				sshClient = new SshClient(txtServer.Text, txtUsername.Text, txtPassword.Text);
-				sshClient.Connect();
-				if (!sshClient.IsConnected)
+				try
 				{
-					txtOutput.AppendText("** Unable to connect to host: " + sshClient.ConnectionInfo.Host);
+					sshClient.Connect();
 				}
-				else
+				catch (Exception ex)
+				{
+					txtOutput.AppendText("** Unable to connect to " + sshClient.ConnectionInfo.Host + " (" + ex.Message + ")\r\n\r\n");
+				}
+				
+				if (sshClient.IsConnected)
 				{
 					txtOutput.AppendText("Connected.\r\n\r\n");
 					btnConnectDisconnect.Text = "Disconnect";
 					btnStartStop.Enabled = true;
 					SshStream();
+					RunCommand("");
 				}
 			}
 		}
@@ -106,10 +111,18 @@ namespace Repeater_Programming_Utility
 			{
 				if (readyForNextLine)
 				{
-					string command = txtScript.Lines[inputLineNumber];
-					// Clean it up
-					if (command.Contains(";")) { command = command.Remove(command.IndexOf(';')); }
-					command = command.Trim();
+					string command = "";
+					do
+					{
+						inputLineNumber++;
+						if (inputLineNumber > txtScript.Lines.Length)
+						{
+							break;
+						}
+						command = txtScript.Lines[inputLineNumber];
+						if (command.Contains(";")) { command = command.Remove(command.IndexOf(';')); }
+						command = command.Trim();
+					} while (command == string.Empty);
 
 					if (command != string.Empty)
 					{
@@ -121,8 +134,6 @@ namespace Repeater_Programming_Utility
 					int selectEnd = txtScript.Text.IndexOf(Environment.NewLine, txtScript.GetFirstCharIndexFromLine(inputLineNumber));
 					if (selectEnd == -1) { selectEnd = txtScript.Text.Length; }
 					txtScript.Select(selectStart, selectEnd - selectStart);
-
-					inputLineNumber++;
 				}
 			}
 			else
@@ -173,10 +184,18 @@ namespace Repeater_Programming_Utility
 
 		public bool RunCommand(string cmd)
 		{
-			shellStream.WriteLine(cmd);
-			shellStream.Flush();
+			if (sshClient.IsConnected)
+			{
+				shellStream.WriteLine(cmd);
+				shellStream.Flush();
 
-			return true;
+				return true;
+			}
+			else
+			{
+				MessageBox.Show("Client not connected", "Not connected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
 		}
 		delegate void SetTextCallback(string text);
 		private void Output(string text)
