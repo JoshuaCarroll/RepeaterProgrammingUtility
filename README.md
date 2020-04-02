@@ -1,5 +1,6 @@
 ---
 
+Wondering why you can't comment on my post about this software on the "Ham Radio Software" Facebook group?  Me too!  Please send a message to Jeffrey Towle and ask him why, after posting my link, he said my post wasn't helpful, turned off comments on it, and BANNED me from posting for a week.
 
 ---
 
