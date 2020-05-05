@@ -51,16 +51,16 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="sshServer" Type="System.String" Scope="User">
-      <Value Profile="(Default)">10.0.0.100</Value>
+      <Value Profile="(Default)">192.168.88.1</Value>
     </Setting>
     <Setting Name="sshUsername" Type="System.String" Scope="User">
-      <Value Profile="(Default)">pi</Value>
+      <Value Profile="(Default)">n5cg</Value>
     </Setting>
     <Setting Name="sshPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)">raspberry</Value>
+      <Value Profile="(Default)">I4KnypZ2ugMhvzwNi6ValALn</Value>
     </Setting>
     <Setting Name="sshWaitForPrompt" Type="System.String" Scope="User">
-      <Value Profile="(Default)">pi@garage:~$</Value>
+      <Value Profile="(Default)">DTMF&gt;</Value>
     </Setting>
     <Setting Name="defaultForm" Type="System.String" Scope="User">
       <Value Profile="(Default)">SSH</Value>
