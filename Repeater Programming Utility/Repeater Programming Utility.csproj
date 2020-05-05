@@ -29,11 +29,11 @@
     <SupportUrl>https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/wiki</SupportUrl>
     <ErrorReportUrl>https://github.com/JoshuaCarroll/RepeaterProgrammingUtility/issues/new%3fbody=-%2520What%2520were%2520you%2520trying%2520to%2520do%253F%2520%250D%250A%250D%250A%250D%250A-%2520What%2520happened%2520instead%253F%250D%250A%250D%250A%250D%250A_____%250D%250AOS%253A%2520Windows%250D%250ASoftware%2520version%253A%25200.0&amp;labels=bug</ErrorReportUrl>
     <TargetCulture>en</TargetCulture>
-    <ProductName>N5JLC Repeater Programming Utility</ProductName>
-    <PublisherName>Joshua Carroll, N5JLC</PublisherName>
+    <ProductName>AA5JC Repeater Programming Utility</ProductName>
+    <PublisherName>Joshua Carroll, AA5JC</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -60,10 +60,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>00474228D9A0525DE48E9995FF9E5CB3FBEF42B1</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>E4879691DBEE90706DCA8DFAA4F91F58BF34FF68</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Repeater Programming Utility_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Repeater Programming Utility_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -152,6 +152,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Repeater Programming Utility_1_TemporaryKey.pfx" />
+    <None Include="Repeater Programming Utility_2_TemporaryKey.pfx" />
     <None Include="Repeater Programming Utility_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
