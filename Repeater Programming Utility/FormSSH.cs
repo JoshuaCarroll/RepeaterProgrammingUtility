@@ -111,31 +111,42 @@ namespace Repeater_Programming_Utility
 			{
 				if (readyForNextLine)
 				{
+					readyForNextLine = false;
 					string command = "";
 					do
 					{
 						inputLineNumber++;
-						if (inputLineNumber > txtScript.Lines.Length)
+						if (inputLineNumber >= txtScript.Lines.Length)
 						{
 							break;
 						}
 						command = txtScript.Lines[inputLineNumber];
 						if (command.Contains(";")) { command = command.Remove(command.IndexOf(';')); }
 						command = command.Trim();
-					} while (command == string.Empty);
+					} while ((command == string.Empty) && (inputLineNumber + 1 < txtScript.Lines.Length));
 
 					if (command != string.Empty)
 					{
-						readyForNextLine = false;
 						RunCommand(command);
 					}
 
-					int selectStart = txtScript.GetFirstCharIndexFromLine(inputLineNumber);
-					int selectEnd = txtScript.Text.IndexOf(Environment.NewLine, txtScript.GetFirstCharIndexFromLine(inputLineNumber));
-					if (selectEnd == -1) { selectEnd = txtScript.Text.Length; }
-					txtScript.Select(selectStart, selectEnd - selectStart);
-					txtScript.ScrollToCaret();
+					if (inputLineNumber + 1 < txtScript.Lines.Length)
+					{
+						int selectStart = txtScript.GetFirstCharIndexFromLine(inputLineNumber);
+						if (selectStart != -1)
+						{
+							int selectEnd = txtScript.Text.IndexOf(Environment.NewLine, txtScript.GetFirstCharIndexFromLine(inputLineNumber));
+							if (selectEnd == -1) { selectEnd = txtScript.Text.Length; }
+							txtScript.Select(selectStart, selectEnd - selectStart);
+							txtScript.ScrollToCaret();
+						}
+					}
+					else
+					{
+						btnStartStop_Click(sender, e);
+					}
 				}
+				
 			}
 			else
 			{
